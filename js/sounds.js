@@ -10,7 +10,7 @@ let sounds = {
     snapback: ['black-snapback.mp3'],
     capturePiece: ['black-capture-piece.mp3'],
     captureSpecificPiece: ['blakc-capture-specific-piece.mp3'],
-    loosePiece: ['sounds/rock/3yell9.wav'],
+    loosePiece: ['audio/rock/3yell9.wav'],
     looseSpecificPiece: ['black-loose-specific-piece.mp3'],
     winning: ['black-winning.mp3'],
     losing: ['black-losing.mp3'],
