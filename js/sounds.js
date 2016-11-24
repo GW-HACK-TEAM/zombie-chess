@@ -3,7 +3,7 @@
 let sounds = {
   general: {
     snapback: ['audio/general/snapback.mp3'],
-    loosePiece: ['audio/rock/3yell9.wav', 'audio/rock/yell7.wav', 'audio/rock/yell8.wav', 'audio/rock/yell9.wav', 'audio/rock/yell10.wav', 'audio/rock/yell11.wav', 'audio/rock/yell12.wav'],
+    loosePiece: ['audio/general/3yell9.wav', 'audio/general/yell7.wav', 'audio/general/yell8.wav', 'audio/general/yell9.wav', 'audio/general/yell10.wav', 'audio/general/yell11.wav', 'audio/general/yell12.wav'],
   },
   black: {
     drag: ['black-drag.mp3'],
