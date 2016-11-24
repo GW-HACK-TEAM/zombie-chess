@@ -17,6 +17,7 @@ body {
   background-position: top center;
   height: 100%;
   background-color: #fceeef;
+  position: relative;
 }
 
 #board {
@@ -76,4 +77,47 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.bants-wrapper {
+  background-color: #9ea8bf;
+  position: absolute;
+  width: 250px;
+  height: 160px;
+  display: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.bants-wrapper.rock-bants {
+  top: 450px;
+  left: 10%;
+}
+
+.bants-wrapper.rock-bants:after {
+  content: '';
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 30px 30px;
+  border-color: transparent transparent #9ea8bf transparent;
+  top: -30px;
+  position: absolute;
+  right: 30px;
+}
+
+.bants-wrapper.dance-bants {
+  top: 550px;
+  right: 10%;
+}
+
+.bants-wrapper.dance-bants:after {
+  content: '';
+  height: 0;
+  border-style: solid;
+  border-width: 30px 30px 0 0;
+  border-color: #9ea8bf transparent transparent transparent;
+  bottom: -30px;
+  position: absolute;
+  left: 30px;
 }

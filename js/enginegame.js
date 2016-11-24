@@ -48,13 +48,12 @@ const engineGame = function engineGame(options) {
 
     // illegal move
     if (move === null) {
+      EventsLib.dropped(source, target, true);
+
       return 'snapback';
     }
 
-    // On capture
-    if (move.captured) {
-      /* console.log('captured piece!');*/
-    }
+    EventsLib.dropped(source, target, false);
 
     prepareMove();
   };

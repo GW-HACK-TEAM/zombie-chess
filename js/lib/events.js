@@ -8,11 +8,66 @@
      * @param {Object} newPos
      */
     captured: function (oldPos, newPos) {
-      console.log("Old position: ", oldPos);
-      console.log("New position: ", newPos);
-      console.log(' ');
+      let oldPositions = this._mapPiecePositions(oldPos);
+      let newPositions = this._mapPiecePositions(newPos);
+      let capturedPiece = [];
+      let capturedPieceObj = {};
+      let captorData = [];
+      let capturedData = [];
+
+
+      // If a piece is captured, work out which piece it was
+      if (oldPositions.length != newPositions.length) {
+
+        // Find the differences
+        capturedPiece = _.difference(oldPositions, newPositions);
+
+        // Get the move data out of the string
+        captorData = capturedPiece[0].split(':');
+        capturedData = capturedPiece[1].split(':');
+
+        // Create captured data
+        capturedPieceObj = {
+          captor: captorData[1],
+          captured: capturedData[1],
+          moveStart: captorData[0],
+          moveEnd: capturedData[0]
+        };
+
+        // Publish the captured event
+        Bulletin.publish('captured', capturedPieceObj);
+      }
     },
 
+
+    /**
+     * When a piece is dropped
+     *
+     * @param {String} source
+     * @param {String} target
+     */
+    dropped: function (source, target, snapback) {
+
+      // Publish the dropped event
+      Bulletin.publish('dropped', {
+        from: source,
+        to: target,
+        snapback: snapback
+      });
+    },
+
+
+    /**
+     * Maps a positions objects in to an array
+     *
+     * @param {Object} obj
+     * @return {Array}
+     */
+    _mapPiecePositions: function (obj) {
+      return _.map(obj, function (val, idx) {
+        return idx + ':' + val;
+      });
+    },
   };
 
   window.EventsLib = eventsLib;
