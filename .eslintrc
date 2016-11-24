@@ -44,7 +44,8 @@
     "ChessBoard": true,
     "engineGame": true,
     "STOCKFISH": true,
-    "EventsLib": true
+    "EventsLib": true,
+    "_": true
   },
 
   "plugins": [
