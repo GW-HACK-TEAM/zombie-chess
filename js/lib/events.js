@@ -60,15 +60,25 @@
 
 
     /**
-     * When a piece is dropped
-     *
-     * @param {String} source
-     * @param {String} target
+     * When the game is over
      */
-    gameOver: function (source, target, snapback) {
+    gameOver: function () {
+      let winningData = {};
+
+      if (whitePiecesCount < blackPiecesCount) {
+        winningData = {
+          winner: 'black',
+          loser: 'white'
+        };
+      } else {
+        winningData = {
+          winner: 'white',
+          loser: 'black'
+        };
+      }
 
       // Publish the dropped event
-      Bulletin.publish('victory', true);
+      Bulletin.publish('game_over', winningData);
     },
 
 
