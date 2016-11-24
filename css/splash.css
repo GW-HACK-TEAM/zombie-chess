@@ -1,3 +1,21 @@
+@font-face {
+	font-family: 'munro';
+	src: url('../fonts/munro/Munro.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'munro', 'courier', monospace, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
+  font-family: 'munro', 'courier', monospace, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit
+}
+
 .splash-character{
   width:100%;
 }
@@ -14,4 +32,63 @@
 
 .logo {
   margin-left:-9rem;
+}
+
+@-ms-keyframes wiggle{
+  0% {
+    -ms-transform:rotate(3deg);
+  }
+  50% {
+    -ms-transform:rotate(-3deg);
+  }
+  100% {
+    -ms-transform:rotate(3deg);
+  }
+}
+@-moz-keyframes wiggle {
+  0% {
+    -moz-transform:rotate(3deg);
+  }
+  50% {
+    -moz-transform:rotate(-3deg);
+  }
+  100% {
+    -moz-transform:rotate(3deg);
+  }
+}
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform:rotate(3deg);
+  }
+  50% {
+    -webkit-transform:rotate(-3deg);
+  }
+  100% {
+    -webkit-transform:rotate(3deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform:rotate(3deg);
+  }
+  50% {
+    transform:rotate(-3deg);
+  }
+  100% {
+    transform:rotate(3deg);
+  }
+}
+
+.choose-a-side a {
+  color: white;
+}
+
+.choose-a-side a:hover {
+  display: block;
+  text-decoration: none;
+  -ms-animation:wiggle .3s infinite;
+  -moz-animation:wiggle .3s infinite;
+  -webkit-animation:wiggle .3s infinite;
+  animation: wiggle .3s infinite;
 }
