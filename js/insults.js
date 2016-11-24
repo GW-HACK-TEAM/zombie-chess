@@ -174,8 +174,12 @@ var concoct = function() {
   return result;
 };
 
-var capturedBants = function() {
-  var $element = $('.rock-bants');
+var capturedBants = function(payload) {
+  console.log('PL', payload);
+  // If the captured piece is white, white should shout!
+  var $element = payload.captured.search(/w/) !== -1 ?
+    $('.rock-bants') :
+    $('.dance-bants');
   $element.text(concoct);
   $element.show();
 
