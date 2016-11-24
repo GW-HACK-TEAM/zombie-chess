@@ -120,10 +120,25 @@
   </div>
 </div>
 <script>
+  let username = localStorage.getItem('username');
+  let side = localStorage.getItem('color');
   $('.exit').click(function () {
-    localStorage.setItem('score', $('.score').text());
+    let score = $('.score').text();
+    if(score == 'Mate in 1'){
+      score = 100;
+    }
+    localStorage.setItem('score', score);
+    $.ajax({
+       type: "POST",
+       url: 'http://chris.gw:3000/api/postScore',
+       data: {
+         score: score,
+         username: username,
+         side: side
+       },
+     });
   });
-  $('.username').text(localStorage.getItem('username'))
+  $('.username').text(username)
 </script>
 <script src="./js/bulletin.js"></script>
 <script src="./js/insults.js"></script>

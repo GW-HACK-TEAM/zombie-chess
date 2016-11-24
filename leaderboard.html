@@ -6,12 +6,16 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/contrib/jquery-1.10.1.min.js"></script>
   <script src="js/contrib/bootstrap.min.js"></script>
+  <script src="js/contrib/lodash.js"></script>
 </head>
 
 <body>
 <h1>Leaderboard</h1>
 <h2>Your Score:</h2>
 <h3 class="score"></h3>
+<div class="result">
+
+</div>
   <table>
     <tr>
       <td>
@@ -20,10 +24,16 @@
     </tr>
   </table>
 <script>
-  console.log(localStorage.getItem('score'));
+  $.get( "http://chris.gw:3000/api/getLeaderBoard", function( data ) {
+    $.each(data, function( index, value ) {
+      $('.result').append("<p>"+value.username+": "+ value.score + "</p>")
+    });
+  });
   if(localStorage.getItem('score') !== 'undefined'){
     $('.score').text(localStorage.getItem('score'))
   }
+
+
 </script>
 
 </body>
