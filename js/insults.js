@@ -182,19 +182,33 @@ var quotes = {
         "You've got mud on your face",
         "Mamma,I just killed a man",
         "No time for losers",
+        "I won't be a rock star, I will be a legend",
+        "We are the champions!"
       ],
       'DB': [
         "You've really made the grade",
-        "This is ground control to major DEAD!"
+        "This is ground control to major DEAD!",
+        "I'm an instant star. Just add water and stir.",
+        "You would think that a rock star being married to a supermodel would be one of the greatest things in the world. It is."
       ],
     },
     'dance': {
       'OH': [
         "Eeeeeeeeeeeeeyyyyy",
-        "This is banging"
+        "Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyy",
+        "Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyy",
+        "This is banging",
+        "I'm a future classic",
+        "Genres mean nothing to me.",
+        "It's groovy and uplifting",
+        "This is huge right now!",
       ],
       'Bjork': [
-        "I am a grateful... grapefruit."
+        "I am a grateful... grapefruit.",
+        "Football is a fertility festival. Eleven sperm trying to get into the egg. I feel sorry for the goalkeeper.",
+        "People are always asking me about eskimos, but there are no eskimos in Iceland.",
+        "I'm a fountain of blood. In the shape of a girl.",
+        "I am one of the most idiosyncratic people around."
       ],
     },
   },
@@ -211,10 +225,13 @@ var quotes = {
     },
     'dance': {
       'OH': [
-        "It's all relative, man"
+        "It's all relative, man",
+        "I'm flying to vegas to DJ anyway",
       ],
       'Bjork': [
-        "I'm just like anybody. I have my ups and downs."
+        "I'm just like anybody. I have my ups and downs.",
+        "The English eat all sorts of birds - pigeons, ducks, sparrows - but if you tell them you eat puffin, you might as well come from Mars.",
+        "Singing is like a celebration of oxygen."
       ],
     },
   }
@@ -249,8 +266,10 @@ var capturedBants = function(payload) {
     var $element2 = side2 === 'dance' ?
       $('.dance-bants') :
       $('.rock-bants');
-
     var person2 = pickRand(_.keys(quotes['lose a piece'][side2]));
+    console.log('Side2', side2);
+    console.log('$element2', $element2);
+    console.log('person2', person2);
     showQuote($element2, person2, pickRand(quotes['lose a piece'][side2][person2]));
   }
 };
