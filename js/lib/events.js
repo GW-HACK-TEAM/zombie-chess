@@ -68,7 +68,7 @@
     gameOver: function (source, target, snapback) {
 
       // Publish the dropped event
-      Bulletin.publish('game_over');
+      Bulletin.publish('victory', true);
     },
 
 
