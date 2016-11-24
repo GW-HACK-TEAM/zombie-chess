@@ -3,8 +3,8 @@ const engineGame = function engineGame(options) {
   var game = new Chess();
   var board;
   // We can load Stockfish via Web Workers or via STOCKFISH() if loaded from a <script> tag.
-  var engine = typeof STOCKFISH === "function" ? STOCKFISH() : new Worker(options.stockfishjs || 'stockfish.js');
-  var evaler = typeof STOCKFISH === "function" ? STOCKFISH() : new Worker(options.stockfishjs || 'stockfish.js');
+  var engine = typeof STOCKFISH === "function" ? STOCKFISH() : new Worker(options.stockfishjs || './js/contrib/stockfish.js');
+  var evaler = typeof STOCKFISH === "function" ? STOCKFISH() : new Worker(options.stockfishjs || './js/contrib/stockfish.js');
   var engineStatus = {};
   var displayScore = false;
   var time = { wtime: 300000, btime: 300000, winc: 2000, binc: 2000 };
@@ -351,3 +351,5 @@ const engineGame = function engineGame(options) {
     }
   };
 };
+
+window.engineGame = engineGame;
