@@ -77,7 +77,7 @@ const engineGame = function engineGame(options) {
     if (game.game_over()) {
       announced_game_over = true;
 
-      alert("Your game is only FUCKING OVER!");
+      EventsLib.gameOver();
     }
   }, 1000);
 
@@ -225,7 +225,7 @@ const engineGame = function engineGame(options) {
   };
 
   engine.onmessage = function(event) {
-    console.log('engine:', event);
+    // console.log('engine:', event);
     var line;
     var match;
 
