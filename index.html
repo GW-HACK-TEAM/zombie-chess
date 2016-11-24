@@ -12,17 +12,32 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="game-area">
-        <div class="toolbar">
-          <button class="btn btn-default show-settings"><span class="glyphicon glyphicon-cog"></span>Settings</button>
-        </div>
+    <div class="toolbar">
+      <div class="menu">
+        <a href="#">HEADER</a> /
+        <a href="#">STATUS BOARD</a> /
+        <a href="#">NAVIGATION</a> /
+        <a href="#">MENUS</a> /
+      </div>
+      <button class="btn btn-default show-settings"><span class="glyphicon glyphicon-cog"></span>Settings</button>
+    </div>
+    <div class="game-area">
+      <div class="avatar-chunk rock-avatar">
+        <div class="avatar-icon"></div>
+        <div class="name">ROCK AVATAR</div>
+      </div>
+      <div class="container">
         <span class="h3" id="time1">0:05:00</span>
         <div id="board" style="width: 400px"></div>
         <span class="h3" id="time2">0:05:00</span>
         <hr>
         <div id="engineStatus">...</div>
       </div>
+      <div class="avatar-chunk dance-avatar">
+        <div class="avatar-icon"></div>
+        <div class="name">DANCE AVATAR</div>
+      </div>
+
       <div class="settings">
         <h3>Moves:</h3>
         <div id="pgn"></div>
