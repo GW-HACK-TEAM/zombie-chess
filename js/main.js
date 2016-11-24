@@ -42,7 +42,7 @@
 
    // If we load Stockfish.js via a <script> tag, we need to wait until it loads.
    if (!wait_for_script) {
-     document.addEventListener("DOMContentLoaded", init);
+     document.addEventListener('DOMContentLoaded', init);
    }
 }());
 
