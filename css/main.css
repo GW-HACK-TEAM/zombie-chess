@@ -261,6 +261,8 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 .laser {
   position: absolute;
   transform-origin: bottom center;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .laser-right {
