@@ -177,9 +177,10 @@ var concoct = function() {
 var capturedBants = function(payload) {
   console.log('PL', payload);
   // If the captured piece is white, white should shout!
+  console.log(payload.captured.search(/w/));
   var $element = payload.captured.search(/w/) !== -1 ?
-    $('.rock-bants') :
-    $('.dance-bants');
+    $('.dance-bants') :
+    $('.rock-bants');
   $element.text(concoct);
   $element.show();
 
