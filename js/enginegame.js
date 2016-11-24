@@ -275,6 +275,8 @@ const engineGame = function engineGame(options) {
 
   var pieceTheme = function(piece) {
 
+    console.log(piece);
+
     if (piece === 'bQ') {
       return 'img/chesspieces/rockstars/freddie_sad_chess.png';
     }
@@ -289,6 +291,10 @@ const engineGame = function engineGame(options) {
 
     if (piece === 'wQ') {
       return 'img/chesspieces/danceheroes/tmp_bjork.png';
+    }
+
+    if (piece === 'wP') {
+      return 'img/chesspieces/danceheroes/deadmau5_pawn_chess.png';
     }
 
     return 'img/chesspieces/wikipedia/' + piece + '.png';
