@@ -32,42 +32,63 @@
         <span class="h1 score">0</span>
       </div>
     </div>
-  </div>
-</div>
-<div class="container leaderboard leaderboard-bg">
-  <div class="row leaderboard-spacer">
-    <div class="col-lg-3 col-lg-offset-3">
-      <div class="battleScore">
-        <h1 class="text-center">Rock Legends</h1>
-        <h2 class="battleScore-black text-center">
-        </h2>
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="battleScore">
-        <h1 class="text-center">EDM Legends</h1>
-        <h2 class="battleScore-white text-center">
-        </h2>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <h1 class="text-center">Top Rockers</h1>
-      <div class="text-center rock-result"></div>
-    </div>
-    <div class="col-lg-4">
-      <h1 class="text-center">Leaderboard</h1>
-      <div class="text-center result">
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <h1 class="text-center">Off Their Face EDMers</h1>
-      <div class="text-center edm-result"></div>
-    </div>
-  </div>
-</div>
 
+    <div class="social">
+      <ul>
+        <li>
+          Share
+        </li>
+        <li>
+          <img src="/img/icons/facebook.png"/>
+        </li>
+        <li>
+          <img src="/img/icons/twitter.png"/>
+        </li>
+        <li>
+          <img src="/img/icons/google.png"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="game-area">
+  <div class="container leaderboard leaderboard-bg">
+    <div class="row leaderboard-spacer">
+      <img class="logo" src="/img/splash/logo-small.png">
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-3">
+        <div class="battleScore">
+          <h1 class="text-center">Rock Legends</h1>
+          <h2 class="battleScore-black text-center">
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="battleScore">
+          <h1 class="text-center">EDM Legends</h1>
+          <h2 class="battleScore-white text-center">
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <h1 class="text-center">Top Rockers</h1>
+        <div class="text-center rock-result"></div>
+      </div>
+      <div class="col-lg-4">
+        <h1 class="text-center">Leaderboard</h1>
+        <div class="text-center result">
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h1 class="text-center">Off Their Face EDMers</h1>
+        <div class="text-center edm-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   let username = localStorage.getItem('username');
   let side = localStorage.getItem('color');
@@ -78,7 +99,7 @@
     side: side
   };
   console.log(payload);
-  $.post( "http://52.31.244.147/api/postScore", payload);
+  $.post("http://52.31.244.147/api/postScore", payload);
   $.get("http://52.31.244.147/api/getLeaderBoard", function (data) {
     $.each(data, function (index, value) {
       let block = "<p class='score-row'><span class='score'>" + value.score + "</span> <br><span class='username'>" + value.username + "</span></p>";
