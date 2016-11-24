@@ -197,7 +197,39 @@ var quotes = {
         "I am a grateful... grapefruit."
       ],
     },
+  },
+  'lose a piece': {
+    'rock': {
+      'FM': [
+        "There must be more to life than killing",
+        "The show must go on!"
+      ],
+      'DB': [
+        "I believe that I often bring out the best in somebody's talents",
+        "I've never responded well to entrenched negative thinking"
+      ],
+    },
+    'dance': {
+      'OH': [
+        "It's all relative, man"
+      ],
+      'Bjork': [
+        "I'm just like anybody. I have my ups and downs."
+      ],
+    },
   }
+};
+
+var showQuote = function($element, person, text) {
+  $element.addClass(person);
+  $element.text(text);
+  $element.show();
+
+  setTimeout(function() {
+    $element.text('');
+    $element.hide();
+    $element.removeClass(person);
+  }, 3000);
 };
 
 var capturedBants = function(payload) {
@@ -209,14 +241,18 @@ var capturedBants = function(payload) {
     $('.rock-bants');
 
   var person = pickRand(_.keys(quotes['take a piece'][side]));
-  $element.addClass(person);
-  $element.text(pickRand(quotes['take a piece'][side][person]));
-  $element.show();
+  showQuote($element, person, pickRand(quotes['take a piece'][side][person]));
 
-  setTimeout(function() {
-    // $element.hide();
-    // $element.removeClass(person);
-  }, 3000);
+  // Sometime shout out something from the other side!
+  if (Math.random() >= 0.5) {
+    var side2 = side === 'dance' ? 'rock' : 'dance';
+    var $element2 = side2 === 'dance' ?
+      $('.dance-bants') :
+      $('.rock-bants');
+
+    var person2 = pickRand(_.keys(quotes['lose a piece'][side2]));
+    showQuote($element2, person2, pickRand(quotes['lose a piece'][side2][person2]));
+  }
 };
 
 Bulletin.subscribe('captured', capturedBants);
