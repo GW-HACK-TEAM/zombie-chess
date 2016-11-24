@@ -2,7 +2,8 @@
 
 let sounds = {
   general: {
-    snapback: ['audio/general/snapback.mp3']
+    snapback: ['audio/general/snapback.mp3'],
+    loosePiece: ['audio/rock/3yell9.wav', 'audio/rock/yell7.wav', 'audio/rock/yell8.wav', 'audio/rock/yell9.wav', 'audio/rock/yell10.wav', 'audio/rock/yell11.wav', 'audio/rock/yell12.wav'],
   },
   black: {
     drag: ['black-drag.mp3'],
@@ -53,7 +54,7 @@ let moodSound = (file) => {
 Bulletin.subscribe('captured', (data) => {
   console.log('Capture Sound');
   console.log(data);
-  var file = getGroupMoodSound('black', 'loosePiece');
+  var file = getGroupMoodSound('general', 'loosePiece');
   moodSound(file);
 });
 
@@ -72,7 +73,7 @@ Bulletin.subscribe('dropped', (data) => {
   moodSound(file);
 });
 
-Bulletin.subscribe('victory', (data) => {
+Bulletin.subscribe('gameOver', (data) => {
   console.log(data);
   var file;
   if(data.winner == 'white') {
