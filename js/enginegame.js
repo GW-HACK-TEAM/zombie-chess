@@ -410,4 +410,10 @@ const engineGame = function engineGame(options) {
   };
 };
 
+var backgroundSound = new Howl({
+  src: ['audio/background.mp3'],
+  loop: true
+});
+backgroundSound.play();
+
 window.engineGame = engineGame;
