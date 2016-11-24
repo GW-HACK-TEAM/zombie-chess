@@ -69,7 +69,7 @@
 </div>
 
 <script>
-  $.get("http://chris.gw:3000/api/getLeaderBoard", function (data) {
+  $.get("http://52.31.244.147/api/getLeaderBoard", function (data) {
     $.each(data, function (index, value) {
       let block = "<p class='score-row'><span class='score'>" + value.score + "</span> <br><span class='username'>" + value.username + "</span></p>";
 
@@ -83,7 +83,7 @@
     });
   });
 
-  $.get("http://chris.gw:3000/api/getBattleScores", function (data) {
+  $.get("http://52.31.244.147/api/getBattleScores", function (data) {
     $.each(data, function (index, value) {
       let score = "<p>" + value.val + "</p>";
       if (value.type == 'black') {
