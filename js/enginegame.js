@@ -248,13 +248,24 @@ const engineGame = function engineGame(options) {
     board.position(game.fen());
   };
 
+  var pieceTheme = function(piece) {
+    console.log('Piece', piece);
+
+    if (piece === 'bK') {
+      return 'img/chesspieces/rockstars/freddie_sad_chess.png';
+    }
+
+    return 'img/chesspieces/wikipedia/' + piece + '.png';
+  };
+
   var cfg = {
     showErrors: true,
     draggable: true,
     position: 'start',
     onDragStart: onDragStart,
     onDrop: onDrop,
-    onSnapEnd: onSnapEnd
+    onSnapEnd: onSnapEnd,
+    pieceTheme: pieceTheme,
   };
 
   board = new ChessBoard('board', cfg);
