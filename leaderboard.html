@@ -69,6 +69,16 @@
 </div>
 
 <script>
+  let username = localStorage.getItem('username');
+  let side = localStorage.getItem('color');
+  let score = localStorage.getItem('score');
+  let payload = {
+    score: score,
+    username: username,
+    side: side
+  };
+  console.log(payload);
+  $.post( "http://52.31.244.147/api/postScore", payload);
   $.get("http://52.31.244.147/api/getLeaderBoard", function (data) {
     $.each(data, function (index, value) {
       let block = "<p class='score-row'><span class='score'>" + value.score + "</span> <br><span class='username'>" + value.username + "</span></p>";
@@ -98,7 +108,7 @@
   if (localStorage.getItem('score') !== 'undefined') {
     $('.score').text(localStorage.getItem('score'))
   }
-  let username = localStorage.getItem('username');
+
   $('.username').text(username)
 </script>
 
