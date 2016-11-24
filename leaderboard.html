@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/contrib/jquery-1.10.1.min.js"></script>
+  <script src="js/contrib/bootstrap.min.js"></script>
+</head>
+
+<body>
+<h1>Leaderboard</h1>
+<h2>Your Score:</h2>
+<h3 class="score"></h3>
+  <table>
+    <tr>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+<script>
+  console.log(localStorage.getItem('score'));
+  if(localStorage.getItem('score') !== 'undefined'){
+    $('.score').text(localStorage.getItem('score'))
+  }
+</script>
+
+</body>
+</html>
