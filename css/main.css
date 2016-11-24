@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'munro';
+	src: url('/fonts/munro/Munro.ttf');
+}
+
 html,
 body {
   height: 100%;
