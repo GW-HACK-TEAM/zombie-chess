@@ -74,18 +74,48 @@
     /**
      * When a piece is dropped
      *
-     * @param {String} source
-     * @param {String} target
+     * @param {String|Object} source
+     * @param {String|Object} target
      * @param {Boolean} snapback
      */
     dropped: function (source, target, snapback) {
+      var dropData = {};
+      var oldPositions = [];
+      var newPositions = [];
+      var oldPosDiff = [];
+      var newPosDiff = [];
+      var oldPosDiffSplit = [];
+      var newPosDiffSplit = [];
+      var teamMoved = '';
+
+      // Test what to do with the given data
+      if (_.isString(source) && _.isString(target)) {
+        dropData = {
+          from: source,
+          to: target,
+          snapback: snapback
+        };
+      } else {
+        oldPositions = this._mapPiecePositions(source);
+        newPositions = this._mapPiecePositions(target);
+        oldPosDiff = _.difference(oldPositions, newPositions);
+        newPosDiff = _.difference(newPositions, oldPositions);
+        oldPosDiffSplit = oldPosDiff[0].split(':');
+        newPosDiffSplit = newPosDiff[0].split(':');
+        teamMoved = newPosDiffSplit[1].search(/^w/) !== -1 ? 'white' : 'black';
+
+        dropData = {
+          team: teamMoved,
+          from: oldPosDiffSplit[0],
+          to: newPosDiffSplit[0],
+          snapback: oldPosDiffSplit[0] == newPosDiffSplit[0]
+        };
+
+        console.log(dropData);
+      }
 
       // Publish the dropped event
-      Bulletin.publish('dropped', {
-        from: source,
-        to: target,
-        snapback: snapback
-      });
+      // Bulletin.publish('dropped', dropData);
     },
 
 
