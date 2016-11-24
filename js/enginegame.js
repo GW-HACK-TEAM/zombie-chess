@@ -28,14 +28,14 @@ const engineGame = function engineGame(options) {
   };
 
   var onDragMove = function(newLocation, oldLocation, source, piece, position, orientation) {
-    console.log('Drag move');
+    /* console.log('Drag move');
     console.log("New location: " + newLocation);
     console.log("Old location: " + oldLocation);
     console.log("Source: " + source);
     console.log("Piece: " + piece);
     console.log("Position: " + ChessBoard.objToFen(position));
     console.log("Orientation: " + orientation);
-    console.log(' ');
+    console.log(' ');*/
   };
 
 
@@ -53,7 +53,7 @@ const engineGame = function engineGame(options) {
 
     // On capture
     if (move.captured) {
-      console.log('captured piece!');
+      /* console.log('captured piece!');*/
     }
 
     prepareMove();

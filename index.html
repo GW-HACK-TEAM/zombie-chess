@@ -1,63 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rock Legends vs Electronic Dance Music Legends</title>
-</head>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/splash.css">
-<script src="js/contrib/jquery-1.10.1.min.js"></script>
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="text-center">Rock Legends vs Electronic Dance Music Legends</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <img src="http://placehold.it/600">
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Legends vs Electronic Dance Music Legends</title>
 
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
-      <h2 class="text-center">Enter your username</h2>
-      <input type="text" value="heldeep_fan_1002" class="username form-control">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/splash.css">
+    <script src="js/contrib/jquery-1.10.1.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-center">Rock Legends vs Electronic Dance Music Legends</h1>
+      </div>
     </div>
-    <div class="col-lg-8 col-lg-offset-2">
-      <h2 class="text-center">Pick your side</h2>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <img src="http://placehold.it/600">
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-5">
-      <a href="game.html">
-        <img class="splash-character white" src="https://pbs.twimg.com/media/BsxfQvTIUAE7SEK.jpg">
-      </a>
-    </div>
-    <div class="col-lg-2">
-      <h1>versus</h1>
-    </div>
-    <div class="col-lg-5">
-      <a href="game.html">
-        <img class="splash-character black" src="http://www.telegraph.co.uk/content/dam/music/2016/01/12/Bowie82-large_trans++N4ePBoE4ef7kaLHd_OTbY9BAEDSKG1CPQ-p2qL2pytQ.jpg">
-      </a>
-    </div>
-  </div>
-</div>
-<script>
-  $('.white').click(function(){
-    localStorage.setItem('username', $('.username').val());
-    localStorage.setItem('color', 'white');
-  });
-  $('.black').click(function(){
-    localStorage.setItem('username', $('.username').val());
-    localStorage.setItem('color', 'black');
-  });
 
-  <script src="./js/insults.js"></script>
-  <script src="./js/lib/events.js"></script>
-  <script src="./js/enginegame.js"></script>
-  <script src="./js/main.js"></script>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h2 class="text-center">Enter your username</h2>
+        <input type="text" value="heldeep_fan_1002" class="username form-control">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h2 class="text-center">Pick your side</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <a href="game.html">
+          <img class="splash-character white" src="https://pbs.twimg.com/media/BsxfQvTIUAE7SEK.jpg">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <h1>versus</h1>
+      </div>
+      <div class="col-lg-5">
+        <a href="game.html">
+          <img class="splash-character black" src="http://www.telegraph.co.uk/content/dam/music/2016/01/12/Bowie82-large_trans++N4ePBoE4ef7kaLHd_OTbY9BAEDSKG1CPQ-p2qL2pytQ.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('.white').click(function(){
+      localStorage.setItem('username', $('.username').val());
+      localStorage.setItem('color', 'white');
+    });
+    $('.black').click(function(){
+      localStorage.setItem('username', $('.username').val());
+      localStorage.setItem('color', 'black');
+    });
+  </script>
 </html>
 
