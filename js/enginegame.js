@@ -50,8 +50,6 @@ const engineGame = function engineGame(options) {
       return 'snapback';
     }
 
-    console.log(move);
-
     // On capture
     if (move.captured) {
       console.log('captured piece!');
@@ -67,9 +65,7 @@ const engineGame = function engineGame(options) {
   };
 
   var onMoveEnd = function(oldPos, newPos) {
-    console.log("Old position: ", oldPos);
-    console.log("New position: ", newPos);
-    console.log(' ');
+    EventsLib.captured(oldPos, newPos);
   };
 
 
