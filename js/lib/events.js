@@ -164,8 +164,18 @@
         };
       }
 
-
       console.log(winningData);
+
+      $('.winningModal').removeClass('hidden');
+      let username = localStorage.getItem('username');
+      let side = localStorage.getItem('color');
+      let score = localStorage.getItem('score');
+      let payload = {
+        score: score,
+        username: username,
+        side: side
+      };
+      $.post( "http://52.31.244.147/api/postScore", payload);
 
       // Publish the dropped event
       Bulletin.publish('game_over', winningData);

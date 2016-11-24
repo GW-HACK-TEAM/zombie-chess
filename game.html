@@ -19,7 +19,7 @@
     <div class="menu">
       <ul>
         <li>
-          <a class="exit" href="leaderboard.html">Leaderboard</a>
+          <a class="exit">Concede Game</a>
         </li>
         <li>
           <a class="show-settings" href="#">Options</a>
@@ -150,12 +150,28 @@
     <hr>
     <div id="engineStatus">...</div>
   </div>
+  <div class="winningModal hidden">
+    <h1 class="text-center">Winner</h1>
+    <h2 class="text-center">
+      You have disappointed the rock / pop gods. FOR SHAME!
+    </h2>
+    <p class="text-center">
+      <img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png" height="64" width="64"/>
+    </p>
+    <h2 class="text-center concedelink">
+      <a href="leaderboard.html" class="btn btn-lg">
+        Go to Leaderboard
+      </a>
+    </h2>
+
+  </div>
 </div>
 
 <script>
   let username = localStorage.getItem('username');
   let side = localStorage.getItem('color');
   $('.exit').click(function () {
+    $('.winningModal').removeClass('hidden');
     let score = $('.score').text();
     if(!score){
       return;
@@ -163,9 +179,15 @@
     if(score == 'Mate in 1'){
       score = 100;
     }
-
     localStorage.setItem('score', score);
-
+    let username = localStorage.getItem('username');
+    let side = localStorage.getItem('color');
+    let payload = {
+      score: score,
+      username: username,
+      side: side
+    };
+    $.post( "http://52.31.244.147/api/postScore", payload);
   });
   $('.username').text(username);
 </script>
