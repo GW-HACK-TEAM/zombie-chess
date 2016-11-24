@@ -8,7 +8,8 @@ const engineGame = function engineGame(options) {
   var engineStatus = {};
   var displayScore = false;
   var time = { wtime: 300000, btime: 300000, winc: 2000, binc: 2000 };
-  var playerColor = 'white';
+  var playerColor = localStorage.getItem('color');
+  // var playerColor = 'black';
   var clockTimeoutID = null;
   var isEngineRunning = false;
   var evaluation_el = document.getElementById("evaluation");
@@ -303,7 +304,8 @@ const engineGame = function engineGame(options) {
 
       // NOTE: Stockfish level 20 does not make errors (intentially), so these numbers have no effect on level 20.
       // Level 0 starts at 1
-      err_prob = Math.round(skill * 6.35 + 1);
+      err_prob = Math.round(skill * 6.35 + 2);
+      console.log(err_prob);
       //  Level 0 starts at 10
       max_err = Math.round(skill * -0.5 + 10);
 
