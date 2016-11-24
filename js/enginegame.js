@@ -274,6 +274,15 @@ const engineGame = function engineGame(options) {
     displayStatus();
   };
 
+  var pieceTheme = function(piece) {
+
+    if (piece === 'bK') {
+      return 'img/chesspieces/rockstars/freddie_sad_chess.png';
+    }
+
+    return 'img/chesspieces/wikipedia/' + piece + '.png';
+  };
+
   var cfg = {
     showErrors: true,
     draggable: true,
@@ -282,7 +291,8 @@ const engineGame = function engineGame(options) {
     onDragMove: onDragMove,
     onDrop: onDrop,
     onSnapEnd: onSnapEnd,
-    onMoveEnd: onMoveEnd
+    onMoveEnd: onMoveEnd,
+    pieceTheme: pieceTheme,
   };
 
   board = new ChessBoard('board', cfg);

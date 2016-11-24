@@ -5,6 +5,11 @@ body {
 
 .settings {
   display: none;
+  z-index: 1;
+  background: white;
+  position: absolute;
+  width: 100%;
+  top: 100px;
 }
 
 .game-area {
