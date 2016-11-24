@@ -43,10 +43,40 @@
 
 
     /**
+     * When the game is in check
+     *
+     * @param {Object} oldPos
+     * @param {Object} newPos
+     */
+    check: function (oldPos, newPos) {
+      var oldPositions = this._mapPiecePositions(oldPos);
+      var newPositions = this._mapPiecePositions(newPos);
+      var capturedPieceDiff = _.difference(oldPositions, newPositions);
+      var capturedPieceDiffSplit = [];
+      var checkData = {};
+
+      // See if there was a single last move before the win
+      if (capturedPieceDiff.length == 1) {
+        capturedPieceDiffSplit = capturedPieceDiff[0].split(':');
+
+        if (capturedPieceDiffSplit[1].search(/^b/) !== -1) {
+          checkData = { checked: 'white' };
+        } else {
+          checkData = { checked: 'black' };
+        }
+      }
+
+      // Publish the dropped event
+      Bulletin.publish('check', checkData);
+    },
+
+
+    /**
      * When a piece is dropped
      *
      * @param {String} source
      * @param {String} target
+     * @param {Boolean} snapback
      */
     dropped: function (source, target, snapback) {
 
@@ -61,21 +91,51 @@
 
     /**
      * When the game is over
+     *
+     * @param {Object} oldPos
+     * @param {Object} newPos
      */
-    gameOver: function () {
-      let winningData = {};
+    gameOver: function (oldPos, newPos) {
+      var oldPositions = this._mapPiecePositions(oldPos);
+      var newPositions = this._mapPiecePositions(newPos);
+      var capturedPieceDiff = _.difference(oldPositions, newPositions);
+      var capturedPieceDiffSplit = [];
+      var winningData = {};
 
-      if (whitePiecesCount < blackPiecesCount) {
+      // See if there was a single last move before the win
+      if (capturedPieceDiff.length == 1) {
+        capturedPieceDiffSplit = capturedPieceDiff[0].split(':');
+
+        if (capturedPieceDiffSplit[1].search(/^b/) !== -1) {
+          winningData = {
+            draw: false,
+            winner: 'black',
+            loser: 'white'
+          };
+        } else {
+          winningData = {
+            draw: false,
+            winner: 'white',
+            loser: 'black'
+          };
+        }
+
+      } else if (whitePiecesCount < blackPiecesCount) {
         winningData = {
+          draw: false,
           winner: 'black',
           loser: 'white'
         };
-      } else {
+      } else if (blackPiecesCount < whitePiecesCount) {
         winningData = {
+          draw: false,
           winner: 'white',
           loser: 'black'
         };
       }
+
+
+      console.log(winningData);
 
       // Publish the dropped event
       Bulletin.publish('game_over', winningData);
