@@ -14,27 +14,33 @@
 </head>
 
 <body>
-<div class="container">
-  <div class="row">
-    <h1 class="username"></h1>
-    <h2 class="score"></h2>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <p>
-        <a class="exit" href="leaderboard.html">Exit and go to Leaderboard</a>
-      </p>
+<div class="toolbar">
+  <div class="container">
+    <div class="menu">
+      <ul>
+        <li>
+          <a class="exit" href="leaderboard.html">Leaderboard</a>
+        </li>
+        <li>
+          <a class="show-settings" href="#">Options</a>
+        </li>
+      </ul>
     </div>
 
-    <div class="toolbar">
-      <div class="menu">
-        <a href="#">HEADER</a> /
-        <a href="#">STATUS BOARD</a> /
-        <a href="#">NAVIGATION</a> /
-        <a href="#">MENUS</a> /
+    <div class="megatron">
+      <div class="megatron-content">
+        <h1 class="username"></h1>
+        <span class="score-label">Score</span>
+        <span class="h1 score">0</span>
       </div>
-      <button class="btn btn-default show-settings"><span class="glyphicon glyphicon-cog"></span>Settings</button>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+  </div>
+  <div class="row">
+
     <div class="game-area">
       <div class="avatar-chunk rock-avatar">
         <div class="avatar-icon"></div>
