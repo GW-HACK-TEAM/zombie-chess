@@ -121,3 +121,15 @@ body {
   position: absolute;
   left: 30px;
 }
+
+.bants-wrapper.FM {
+  background-image: url(/img/chesspieces/rockstars/freddie_sad_chess.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bants-wrapper.DB {
+  background-image: url(/img/chesspieces/rockstars/bowie_icon_chess.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}

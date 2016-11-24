@@ -174,18 +174,48 @@ var concoct = function() {
   return result;
 };
 
+var quotes = {
+  'take a piece': {
+    'rock': {
+      'FM': [
+        "I dress to kill, but tastefully",
+        "You've got mud on your face",
+        "Mamma,I just killed a man",
+        "No time for losers",
+      ],
+      'DB': [
+        "You've really made the grade",
+        "This is ground control to major DEAD!"
+      ],
+    },
+    'dance': {
+      'OH': [
+        "Eeeeeeeeeeeeeyyyyy",
+        "This is banging"
+      ],
+      'Bjork': [
+        "I am a grateful... grapefruit."
+      ],
+    },
+  }
+};
+
 var capturedBants = function(payload) {
-  console.log('PL', payload);
-  // If the captured piece is white, white should shout!
-  console.log(payload.captured.search(/w/));
-  var $element = payload.captured.search(/w/) !== -1 ?
+  // If the captured piece is white, black should shout!
+  var side = payload.captured.search(/w/) !== -1 ?
+    'rock' : 'dance';
+  var $element = side === 'dance' ?
     $('.dance-bants') :
     $('.rock-bants');
-  $element.text(concoct);
+
+  var person = pickRand(_.keys(quotes['take a piece'][side]));
+  $element.addClass(person);
+  $element.text(pickRand(quotes['take a piece'][side][person]));
   $element.show();
 
   setTimeout(function() {
-    $element.hide();
+    // $element.hide();
+    // $element.removeClass(person);
   }, 3000);
 };
 
