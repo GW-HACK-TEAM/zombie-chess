@@ -48,19 +48,19 @@
     $.each(data, function( index, value ) {
       let block ="<p class='score-row'><span class='score'>"+ value.score + "</span> <br><span class='username'>"+value.username+"</span></p>";
 
-      if(value.side == 'white'){
+      if(value.side == 'black'){
         $('.rock-result').append(block)
       }
-      if(value.side == 'black'){
+      if(value.side == 'white'){
         $('.edm-result').append(block)
       }
       $('.result').append(block)
     });
   });
 
-  $.get( "http://chris.gw:3000/api/getBattleScores", function( data ) {
-      $('.battleScore').append(data)
-  });
+//  $.get( "http://chris.gw:3000/api/getBattleScores", function( data ) {
+//      $('.battleScore').append(data)
+//  });
 
   if(localStorage.getItem('score') !== 'undefined'){
     $('.score').text(localStorage.getItem('score'))
