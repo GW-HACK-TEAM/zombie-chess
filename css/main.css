@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'munro';
-	src: url('/fonts/munro/Munro.ttf');
+	src: url('../fonts/munro/Munro.ttf');
 }
 
 html,
@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 .game-area {
   height: 100%;
   position: relative;
-  background-image: url(/img/environment/Gamescreen-environment_03-withoutlasers.jpg);
+  background-image: url(../img/environment/Gamescreen-environment_03-withoutlasers.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   background-color: black;
@@ -221,25 +221,93 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 }
 
 .bants-wrapper.FM {
-  background-image: url(/img/chesspieces/rockstars/freddie_sad_chess.png);
+  background-image: url(../img/chesspieces/rockstars/freddie_sad_chess.png);
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .bants-wrapper.DB {
-  background-image: url(/img/chesspieces/rockstars/bowie_icon_chess.png);
+  background-image: url(../img/chesspieces/rockstars/bowie_icon_chess.png);
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .bants-wrapper.OH {
-  background-image: url(/img/chesspieces/danceheroes/oliverheldens_icon_chess.png);
+  background-image: url(../img/chesspieces/danceheroes/oliverheldens_icon_chess.png);
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .bants-wrapper.Bjork {
-  background-image: url(/img/chesspieces/danceheroes/bjork_icon_chess.png);
+  background-image: url(../img/chesspieces/danceheroes/bjork_icon_chess.png);
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@keyframes laserSwingRight {
+   0% { transform: rotate(0) }
+   25% { transform: rotate(45deg) }
+   75% { transform: rotate(-45deg) }
+   100% { transform: rotate(0) }
+}
+
+@keyframes laserSwingLeft {
+   0% { transform: rotate(0) }
+   25% { transform: rotate(-45deg) }
+   75% { transform: rotate(45deg) }
+   100% { transform: rotate(0) }
+}
+
+.laser {
+  position: absolute;
+  transform-origin: bottom center;
+}
+
+.laser-right {
+   -webkit-animation: laserSwingRight 2000ms infinite;
+   animation: laserSwingRight 2000ms infinite;
+   animation-timing-function: linear;
+}
+
+.laser-left {
+   -webkit-animation: laserSwingLeft 2000ms infinite;
+   animation: laserSwingLeft 2000ms infinite;
+   animation-timing-function: linear;
+}
+
+.laser-1 {
+  left: 50%;
+  margin-left: -350px;
+  top: 530px;
+}
+
+.laser-2 {
+  left: 50%;
+  margin-left: -195px;
+  top: 540px;
+}
+
+.laser-3 {
+  left: 50%;
+  margin-left: -125px;
+  top: 540px;
+}
+
+.laser-4 {
+  left: 50%;
+  margin-right: -28px;
+  top: 540px;
+}
+
+.laser-5 {
+  left: 50%;
+  margin-right: 41px;
+  top: 540px;
+}
+
+.laser-6 {
+  left: 50%;
+  margin-left: 195px;
+  top: 530px;
+}
+
