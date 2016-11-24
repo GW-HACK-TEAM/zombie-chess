@@ -249,7 +249,6 @@ const engineGame = function engineGame(options) {
   };
 
   var pieceTheme = function(piece) {
-    console.log('Piece', piece);
 
     if (piece === 'bK') {
       return 'img/chesspieces/rockstars/freddie_sad_chess.png';
