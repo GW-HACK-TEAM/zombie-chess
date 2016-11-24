@@ -174,6 +174,18 @@ var concoct = function() {
   return result;
 };
 
+var capturedBants = function() {
+  var $element = $('.rock-bants');
+  $element.text(concoct);
+  $element.show();
+
+  setTimeout(function() {
+    $element.hide();
+  }, 3000);
+};
+
+Bulletin.subscribe('captured', capturedBants);
+
 window.concoct = concoct;
 
 }());
