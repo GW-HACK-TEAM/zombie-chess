@@ -37,6 +37,11 @@
        game.setSkillLevel(parseInt(this.value, 10));
      });
 
+     document.querySelector('.start-new-game').addEventListener('click', function(e) {
+       e.preventDefault();
+       newGame();
+     });
+
      newGame();
    };
 
