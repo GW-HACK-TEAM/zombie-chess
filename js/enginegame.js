@@ -311,7 +311,7 @@ const engineGame = function engineGame(options) {
     },
     setPlayerColor: function(color) {
       playerColor = color;
-      board.orientation(playerColor);
+      board.orientation('white');
     },
     setSkillLevel: function(skill) {
       var max_err;
