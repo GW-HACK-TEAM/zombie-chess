@@ -46,4 +46,11 @@ let moodSound = (file) => {
   sound.play();
 }
 
+Bulletin.subscribe('captured', (data) => {
+  console.log('Capture Sound');
+  console.log(data);
+  var file = getGroupMoodSound('black', 'loosePiece');
+  moodSound(file);
+});
+
 
