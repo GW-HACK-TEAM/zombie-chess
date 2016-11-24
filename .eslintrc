@@ -42,6 +42,7 @@
     "Bulletin": true,
     "Chess": true,
     "ChessBoard": true,
+    "Howl": true,
     "engineGame": true,
     "STOCKFISH": true,
     "EventsLib": true,
