@@ -66,20 +66,31 @@ const engineGame = function engineGame(options) {
 
   var onMoveEnd = function(oldPos, newPos) {
     EventsLib.captured(oldPos, newPos);
-  };
 
+    if (game.in_checkmate()) {
+      console.log('CHECKMATE!');
+      EventsLib.gameOver(oldPos, newPos);
 
-  setInterval(function () {
-    if (announced_game_over) {
       return;
     }
 
-    if (game.game_over()) {
-      announced_game_over = true;
-
-      EventsLib.gameOver();
+    if (game.in_check()) {
+      EventsLib.check(oldPos, newPos);
     }
-  }, 1000);
+  };
+
+
+  // setInterval(function () {
+  //   if (announced_game_over) {
+  //     return;
+  //   }
+
+  //   if (game.game_over()) {
+  //     announced_game_over = true;
+
+  //     EventsLib.gameOver();
+  //   }
+  // }, 1000);
 
   const uciCmd = function uciCmd(cmd, which) {
     (which || engine).postMessage(cmd);

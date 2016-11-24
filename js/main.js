@@ -51,7 +51,8 @@
     document.addEventListener('DOMContentLoaded', init);
   }
 
-  $('.show-settings').click(function() {
+  $('.show-settings').click(function(e) {
+    e.preventDefault();
     $('.settings').toggle();
   });
 
