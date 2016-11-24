@@ -231,7 +231,8 @@ var quotes = {
       'Bjork': [
         "I'm just like anybody. I have my ups and downs.",
         "The English eat all sorts of birds - pigeons, ducks, sparrows - but if you tell them you eat puffin, you might as well come from Mars.",
-        "Singing is like a celebration of oxygen."
+        "Singing is like a celebration of oxygen.",
+        "My first album didn't come out until I was 27, which in pop years is late, you know."
       ],
     },
   }

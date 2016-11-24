@@ -77,9 +77,7 @@ const engineGame = function engineGame(options) {
     if (game.game_over()) {
       announced_game_over = true;
 
-      Bulletin.publish('victory', game.game_over());
-
-      alert("Your game is only FUCKING OVER!");
+      EventsLib.gameOver();
     }
   }, 1000);
 
@@ -227,7 +225,7 @@ const engineGame = function engineGame(options) {
   };
 
   engine.onmessage = function(event) {
-    console.log('engine:', event);
+    // console.log('engine:', event);
     var line;
     var match;
     var moveMatch;
@@ -286,6 +284,14 @@ const engineGame = function engineGame(options) {
 
     if (piece === 'bK') {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
+    }
+
+    if (piece === 'wK') {
+      return 'img/chesspieces/danceheroes/oliverheldens_icon_chess.png';
+    }
+
+    if (piece === 'wQ') {
+      return 'img/chesspieces/danceheroes/tmp_bjork.png';
     }
 
     return 'img/chesspieces/wikipedia/' + piece + '.png';
