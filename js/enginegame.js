@@ -280,11 +280,11 @@ const engineGame = function engineGame(options) {
 
   var pieceTheme = function(piece) {
 
-    if (piece === 'bK') {
+    if (piece === 'bQ') {
       return 'img/chesspieces/rockstars/freddie_sad_chess.png';
     }
 
-    if (piece === 'bQ') {
+    if (piece === 'bK') {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
 
