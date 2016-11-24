@@ -77,6 +77,8 @@ const engineGame = function engineGame(options) {
     if (game.game_over()) {
       announced_game_over = true;
 
+      Bulletin.publish('victory', false);
+
       alert("Your game is only FUCKING OVER!");
     }
   }, 1000);
