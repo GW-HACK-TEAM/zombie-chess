@@ -13,15 +13,65 @@ const engineGame = function engineGame(options) {
   var isEngineRunning = false;
   var evaluation_el = document.getElementById("evaluation");
   var announced_game_over;
+
   // do not pick up pieces if the game is over
   // only pick up pieces for White
   var onDragStart = function(source, piece) {
     var re = playerColor === 'white' ? /^b/ : /^w/;
-    if (game.game_over() ||
-        piece.search(re) !== -1) {
+
+    if (game.game_over() || piece.search(re) !== -1) {
       return false;
     }
+
+    console.log('Drag start');
   };
+
+  var onDragMove = function(newLocation, oldLocation, source, piece, position, orientation) {
+    console.log('Drag move');
+    console.log("New location: " + newLocation);
+    console.log("Old location: " + oldLocation);
+    console.log("Source: " + source);
+    console.log("Piece: " + piece);
+    console.log("Position: " + ChessBoard.objToFen(position));
+    console.log("Orientation: " + orientation);
+    console.log(' ');
+  };
+
+
+  var onDrop = function(source, target) {
+    var move = game.move({
+      from: source,
+      to: target,
+      promotion: document.getElementById("promote").value
+    });
+
+    // illegal move
+    if (move === null) {
+      return 'snapback';
+    }
+
+    console.log(move);
+
+    // On capture
+    if (move.captured) {
+      console.log('captured piece!');
+    }
+
+    prepareMove();
+  };
+
+  // update the board position after the piece snap
+  // for castling, en passant, pawn promotion
+  var onSnapEnd = function() {
+    board.position(game.fen());
+  };
+
+  var onMoveEnd = function(oldPos, newPos) {
+    console.log("Old position: ", oldPos);
+    console.log("New position: ", newPos);
+    console.log(' ');
+  };
+
 
   setInterval(function () {
     if (announced_game_over) {
@@ -30,12 +80,12 @@ const engineGame = function engineGame(options) {
 
     if (game.game_over()) {
       announced_game_over = true;
-      alert("Game Over");
+
+      alert("Your game is only FUCKING OVER!");
     }
   }, 1000);
 
   const uciCmd = function uciCmd(cmd, which) {
-
     (which || engine).postMessage(cmd);
   };
 
@@ -225,35 +275,15 @@ const engineGame = function engineGame(options) {
     displayStatus();
   };
 
-  var onDrop = function(source, target) {
-    // see if the move is legal
-    var move = game.move({
-      from: source,
-      to: target,
-      promotion: document.getElementById("promote").value
-    });
-
-    // illegal move
-    if (move === null) {
-      return 'snapback';
-    }
-
-    prepareMove();
-  };
-
-  // update the board position after the piece snap
-  // for castling, en passant, pawn promotion
-  var onSnapEnd = function() {
-    board.position(game.fen());
-  };
-
   var cfg = {
     showErrors: true,
     draggable: true,
     position: 'start',
     onDragStart: onDragStart,
+    onDragMove: onDragMove,
     onDrop: onDrop,
-    onSnapEnd: onSnapEnd
+    onSnapEnd: onSnapEnd,
+    onMoveEnd: onMoveEnd
   };
 
   board = new ChessBoard('board', cfg);
