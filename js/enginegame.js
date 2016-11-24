@@ -418,7 +418,7 @@ const engineGame = function engineGame(options) {
 if (localStorage.getItem('color')) {
   var backgroundSound = new Howl({
     src: localStorage.getItem('color') === 'black' ?
-      ['audio/rock-background.wav'] :
+      ['audio/rock-background.mp3'] :
       ['audio/dance-background.mp3'],
     loop: true,
     volume: localStorage.getItem('color') === 'black' ? 0.7 : 1,
