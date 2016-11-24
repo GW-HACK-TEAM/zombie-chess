@@ -28,7 +28,8 @@
       game.reset();
       game.setTime(baseTime, inc);
       game.setSkillLevel(skill);
-      game.setPlayerColor($('#color-white').hasClass('active') ? 'white' : 'black');
+      // game.setPlayerColor($('#color-white').hasClass('active') ? 'white' : 'black');
+      game.setPlayerColor(localStorage.getItem('color'));
       game.setDisplayScore($('#showScore').is(':checked'));
       game.start();
     };

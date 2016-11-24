@@ -1,3 +1,74 @@
+html,
+body {
+  height: 100%;
+}
+
 .settings {
   display: none;
+}
+
+.game-area {
+  /* background: url(/img/Gamescreen-layout_01.jpg); */
+  background-position: top center;
+  height: 100%;
+  background-color: #fceeef;
+}
+
+#board {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 390px;
+}
+
+.toolbar {
+  height: 100px;
+  background-color: #9ea8bf;
+  text-align: center;
+  color: white;
+  padding-top: 40px;
+}
+
+.toolbar a {
+  color: white;
+}
+
+.toolbar button {
+  position: absolute;
+  right: 30px;
+  top: 35px;
+}
+
+.avatar-chunk {
+  position: absolute;
+  left: 50%;
+  line-height: 60px;
+  color: #9ea8bf;
+}
+
+.rock-avatar {
+  top: 190px;
+  padding-left: 80px;
+}
+
+.dance-avatar {
+  top: 870px;
+  padding-right: 80px;
+  left: auto;
+  right: 50%;
+}
+
+.dance-avatar .avatar-icon {
+  left: auto;
+  right: 0;
+}
+
+.avatar-icon {
+  background-color: #9ea8bf;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
