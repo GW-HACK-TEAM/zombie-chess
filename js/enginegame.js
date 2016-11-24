@@ -248,7 +248,7 @@ const engineGame = function engineGame(options) {
           evaluation_el.textContent = "";
           // uciCmd("eval");
           // Is it sending feedback?
-        }, 500);
+        }, 2000);
       } else if (match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
         engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
       }
