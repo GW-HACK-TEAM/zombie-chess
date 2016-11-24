@@ -228,6 +228,7 @@ const engineGame = function engineGame(options) {
     // console.log('engine:', event);
     var line;
     var match;
+    var moveMatch;
 
     if (event && typeof event === "object") {
       line = event.data;
@@ -239,16 +240,18 @@ const engineGame = function engineGame(options) {
     } else if (line === 'readyok') {
       engineStatus.engineReady = true;
     } else {
-      match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
+      moveMatch = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
       // Did the AI move?
-      if (match) {
-        isEngineRunning = false;
-        game.move({from: match[1], to: match[2], promotion: match[3]});
-        prepareMove();
-        uciCmd("eval", evaler);
-        evaluation_el.textContent = "";
-        // uciCmd("eval");
-        // Is it sending feedback?
+      if (moveMatch) {
+        setTimeout(function() {
+          isEngineRunning = false;
+          game.move({from: moveMatch[1], to: moveMatch[2], promotion: moveMatch[3]});
+          prepareMove();
+          uciCmd("eval", evaler);
+          evaluation_el.textContent = "";
+          // uciCmd("eval");
+          // Is it sending feedback?
+        }, 500);
       } else if (match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
         engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
       }
@@ -275,8 +278,12 @@ const engineGame = function engineGame(options) {
 
   var pieceTheme = function(piece) {
 
-    if (piece === 'bK') {
+    if (piece === 'bQ') {
       return 'img/chesspieces/rockstars/freddie_sad_chess.png';
+    }
+
+    if (piece === 'bK') {
+      return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
 
     return 'img/chesspieces/wikipedia/' + piece + '.png';
@@ -302,6 +309,7 @@ const engineGame = function engineGame(options) {
       uciCmd('setoption name Contempt value 0');
       // uciCmd('setoption name Skill Level value 20');
       this.setSkillLevel(0);
+      uciCmd('setoption name Aggressiveness value ' + 80);
       // Agressive 100 (it's now symetric)
       uciCmd('setoption name King Safety value 0');
     },
@@ -310,7 +318,7 @@ const engineGame = function engineGame(options) {
     },
     setPlayerColor: function(color) {
       playerColor = color;
-      board.orientation(playerColor);
+      board.orientation('white');
     },
     setSkillLevel: function(skill) {
       var max_err;

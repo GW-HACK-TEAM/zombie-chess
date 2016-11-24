@@ -6,7 +6,7 @@ let sounds = {
   },
   black: {
     drag: ['black-drag.mp3'],
-    drop: ['black-drop.mp3', 'black-drop-1.mp3'],
+    drop: ['audio/rock/move.mp3'],
     snapback: ['black-snapback.mp3'],
     capturePiece: ['black-capture-piece.mp3'],
     captureSpecificPiece: ['blakc-capture-specific-piece.mp3'],
@@ -18,7 +18,7 @@ let sounds = {
   },
   white: {
     drag: ['white-drag.mp3'],
-    drop: ['white-drop.mp3'],
+    drop: ['audio/edm/move.mp3'],
     snapback: ['white-snapback.mp3'],
     capturePiece: ['white-capture-piece.mp3'],
     captureSpecificPiece: ['blakc-capture-specific-piece.mp3'],
@@ -53,4 +53,14 @@ Bulletin.subscribe('captured', (data) => {
   moodSound(file);
 });
 
+Bulletin.subscribe('dropped', (data) => {
+  console.log(data.from);
+  var file;
+  if(data.from.indexOf('a') > -1) {
+    file = getGroupMoodSound('white', 'drop');
+  } else {
+    file = getGroupMoodSound('black', 'drop');
+  }
+  moodSound(file);
+});
 
