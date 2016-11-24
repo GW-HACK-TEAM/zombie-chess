@@ -17,7 +17,7 @@
     <div class="menu">
       <ul>
         <li>
-          <a class="exit" href="leaderboard.html">Leaderboard</a>
+          <a class="exit" href="index.html">Play Again</a>
         </li>
         <li>
           <a class="show-settings" href="#">Options</a>
@@ -93,13 +93,7 @@
   let username = localStorage.getItem('username');
   let side = localStorage.getItem('color');
   let score = localStorage.getItem('score');
-  let payload = {
-    score: score,
-    username: username,
-    side: side
-  };
-  console.log(payload);
-  $.post("http://52.31.244.147/api/postScore", payload);
+
   $.get("http://52.31.244.147/api/getLeaderBoard", function (data) {
     $.each(data, function (index, value) {
       let block = "<p class='score-row'><span class='score'>" + value.score + "</span> <br><span class='username'>" + value.username + "</span></p>";

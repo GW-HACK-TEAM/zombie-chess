@@ -339,3 +339,19 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   left: 50%;
   transform: translateX(405px);
 }
+
+.winningModal{
+  position: fixed; /* or absolute */
+  width:40%;
+  height:40%;
+  top: 30%;
+  left: 30%;
+  background:rgba(0,0,0,0.8);
+}
+.winningModal h1 {
+  color:white;
+}
+
+.concedelink a{
+  color:white;
+}
