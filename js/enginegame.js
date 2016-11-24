@@ -304,7 +304,7 @@ const engineGame = function engineGame(options) {
     }
 
     if (piece === 'wQ') {
-      return 'img/chesspieces/danceheroes/tmp_bjork.png';
+      return 'img/chesspieces/danceheroes/bjork_icon_chess.png';
     }
 
     if (piece === 'wP') {
