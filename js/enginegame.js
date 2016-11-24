@@ -288,6 +288,14 @@ const engineGame = function engineGame(options) {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
 
+    if (piece === 'wK') {
+      return 'img/chesspieces/danceheroes/oliverheldens_icon_chess.png';
+    }
+
+    if (piece === 'wQ') {
+      return 'img/chesspieces/danceheroes/tmp_bjork.png';
+    }
+
     return 'img/chesspieces/wikipedia/' + piece + '.png';
   };
 

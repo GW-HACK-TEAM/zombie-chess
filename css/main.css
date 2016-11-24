@@ -133,3 +133,15 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.bants-wrapper.OH {
+  background-image: url(/img/chesspieces/danceheroes/oliverheldens_icon_chess.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bants-wrapper.Bjork {
+  background-image: url(/img/chesspieces/danceheroes/tmp_bjork.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
