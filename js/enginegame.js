@@ -57,6 +57,7 @@ const engineGame = function engineGame(options) {
         status += (engineStatus.score.substr(0, 4) === "Mate" ? " " : ' Score: ') + engineStatus.score;
       }
     }
+    $('.score').html(engineStatus.score);
     $('#engineStatus').html(status);
   };
 
