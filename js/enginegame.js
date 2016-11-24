@@ -284,6 +284,10 @@ const engineGame = function engineGame(options) {
       return 'img/chesspieces/rockstars/freddie_sad_chess.png';
     }
 
+    if (piece === 'bQ') {
+      return 'img/chesspieces/rockstars/bowie_icon_chess.png';
+    }
+
     return 'img/chesspieces/wikipedia/' + piece + '.png';
   };
 
