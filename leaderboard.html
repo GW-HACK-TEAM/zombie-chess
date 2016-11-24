@@ -4,36 +4,67 @@
   <meta charset="UTF-8">
   <title>Leaderboard</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/leaderboard.css">
   <script src="js/contrib/jquery-1.10.1.min.js"></script>
   <script src="js/contrib/bootstrap.min.js"></script>
   <script src="js/contrib/lodash.js"></script>
 </head>
 
 <body>
-<h1>Leaderboard</h1>
-<h2>Your Score:</h2>
-<h3 class="score"></h3>
-<div class="result">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 ">
+      <h2 class="text-center">Your Score:</h2>
+      <h3 class="text-center score"></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      BattleScore
+      <div class="battleScore">
 
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <h1 class="text-center">Top Rockers</h1>
+      <div class="text-center rock-result"></div>
+    </div>
+    <div class="col-lg-4">
+      <h1 class="text-center">Leaderboard</h1>
+      <div class="text-center result">
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <h1 class="text-center">Off Their Face EDMers</h1>
+      <div class="text-center edm-result"></div>
+    </div>
+  </div>
 </div>
-  <table>
-    <tr>
-      <td>
 
-      </td>
-    </tr>
-  </table>
 <script>
   $.get( "http://chris.gw:3000/api/getLeaderBoard", function( data ) {
     $.each(data, function( index, value ) {
-      $('.result').append("<p>"+value.username+": "+ value.score + "</p>")
+      let block ="<p class='score-row'><span class='score'>"+ value.score + "</span> <br><span class='username'>"+value.username+"</span></p>";
+
+      if(value.side == 'white'){
+        $('.rock-result').append(block)
+      }
+      if(value.side == 'black'){
+        $('.edm-result').append(block)
+      }
+      $('.result').append(block)
     });
   });
+
+  $.get( "http://chris.gw:3000/api/getBattleScores", function( data ) {
+      $('.battleScore').append(data)
+  });
+
   if(localStorage.getItem('score') !== 'undefined'){
     $('.score').text(localStorage.getItem('score'))
   }
-
-
 </script>
 
 </body>
