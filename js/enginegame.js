@@ -18,8 +18,7 @@ const engineGame = function engineGame(options) {
   // only pick up pieces for White
   var onDragStart = function(source, piece) {
     var re = playerColor === 'white' ? /^b/ : /^w/;
-    if (game.game_over() ||
-        piece.search(re) !== -1) {
+    if (game.game_over() || piece.search(re) !== -1) {
       return false;
     }
   };
@@ -180,6 +179,7 @@ const engineGame = function engineGame(options) {
   };
 
   engine.onmessage = function(event) {
+    console.log('engine:', event);
     var line;
     var match;
 

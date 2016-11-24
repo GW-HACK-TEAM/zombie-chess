@@ -1,40 +1,55 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/chessboard-0.3.0.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <script src="js/contrib/jquery-1.10.1.min.js"></script>
-    <script src="js/contrib/bootstrap.min.js"></script>
-    <script src="js/contrib/chess.min.js"></script>
-    <script src="js/contrib/chessboard-0.3.0.min.js"></script>
-    <title>Rock Legends vs Electronic Dance Music Legends</title>
-  </head>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/chessboard-0.3.0.min.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="js/contrib/jquery-1.10.1.min.js"></script>
+  <script src="js/contrib/bootstrap.min.js"></script>
+  <script src="js/contrib/chess.min.js"></script>
+  <script src="js/contrib/chessboard-0.3.0.min.js"></script>
+  <title>Rock Legends vs Electronic Dance Music Legends</title>
+</head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <h1 class="username"></h1>
-        <h2 class="score"></h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <p>
-            <a class="exit" href="leaderboard.html">Exit and go to Leaderboard</a>
-          </p>
-        </div>
+<body>
+<div class="container">
+  <div class="row">
+    <h1 class="username"></h1>
+    <h2 class="score"></h2>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p>
+        <a class="exit" href="leaderboard.html">Exit and go to Leaderboard</a>
+      </p>
+    </div>
 
+    <div class="toolbar">
+      <div class="menu">
+        <a href="#">HEADER</a> /
+        <a href="#">STATUS BOARD</a> /
+        <a href="#">NAVIGATION</a> /
+        <a href="#">MENUS</a> /
       </div>
-      <div class="game-area">
-        <div class="toolbar">
-          <button class="btn btn-default show-settings"><span class="glyphicon glyphicon-cog"></span>Settings</button>
-        </div>
+      <button class="btn btn-default show-settings"><span class="glyphicon glyphicon-cog"></span>Settings</button>
+    </div>
+    <div class="game-area">
+      <div class="avatar-chunk rock-avatar">
+        <div class="avatar-icon"></div>
+        <div class="name">ROCK AVATAR</div>
+      </div>
+      <div class="container">
         <span class="h3" id="time1">0:05:00</span>
         <div id="board" style="width: 400px"></div>
         <span class="h3" id="time2">0:05:00</span>
         <hr>
         <div id="engineStatus">...</div>
       </div>
+      <div class="avatar-chunk dance-avatar">
+        <div class="avatar-icon"></div>
+        <div class="name">DANCE AVATAR</div>
+      </div>
+
       <div class="settings">
         <h3>Moves:</h3>
         <div id="pgn"></div>
@@ -94,15 +109,17 @@
         </form>
         <h5>Evaluation</h5>
         <pre id=evaluation></pre>
+      </div>
     </div>
-    </div>
-  </body>
-  <script>
-    $('.exit').click(function(){
-      localStorage.setItem('score', $('.score').text());
-    });
-    $('.username').text(localStorage.getItem('username'))
-  </script>
-  <script src="./js/enginegame.js"></script>
-  <script src="./js/main.js"></script>
+  </div>
+</div>
+</body>
+<script>
+  $('.exit').click(function () {
+    localStorage.setItem('score', $('.score').text());
+  });
+  $('.username').text(localStorage.getItem('username'))
+</script>
+<script src="./js/enginegame.js"></script>
+<script src="./js/main.js"></script>
 </html>
