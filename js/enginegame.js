@@ -415,10 +415,15 @@ const engineGame = function engineGame(options) {
   };
 };
 
-var backgroundSound = new Howl({
-  src: ['audio/background.mp3'],
-  loop: true
-});
-backgroundSound.play();
+if (localStorage.getItem('color')) {
+  var backgroundSound = new Howl({
+    src: localStorage.getItem('color') === 'black' ?
+      ['audio/rock-background.wav'] :
+      ['audio/dance-background.mp3'],
+    loop: true,
+    volume: localStorage.getItem('color') === 'black' ? 0.7 : 1,
+  });
+  backgroundSound.play();
+}
 
 window.engineGame = engineGame;
