@@ -303,6 +303,7 @@ const engineGame = function engineGame(options) {
       uciCmd('setoption name Contempt value 0');
       // uciCmd('setoption name Skill Level value 20');
       this.setSkillLevel(0);
+      uciCmd('setoption name Aggressiveness value ' + 80);
       // Agressive 100 (it's now symetric)
       uciCmd('setoption name King Safety value 0');
     },
