@@ -163,16 +163,9 @@
     if(score == 'Mate in 1'){
       score = 100;
     }
+
     localStorage.setItem('score', score);
-    $.ajax({
-       type: "POST",
-       url: 'http://chris.gw:3000/api/postScore',
-       data: {
-         score: score,
-         username: username,
-         side: side
-       },
-     });
+
   });
   $('.username').text(username);
 </script>

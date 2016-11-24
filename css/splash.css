@@ -1,3 +1,17 @@
 .splash-character{
   width:100%;
 }
+
+.splash-background {
+  background-image: url('/img/splash/splash-bkgd.jpg');
+  background-size:cover;
+}
+
+.username-container{
+  margin:0 auto;
+  padding:4rem;
+}
+
+.logo {
+  margin-left:-9rem;
+}
