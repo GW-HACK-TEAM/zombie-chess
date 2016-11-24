@@ -34,9 +34,26 @@
           moveEnd: capturedData[0]
         };
 
-        // Publish the capture content
+        // Publish the captured event
         Bulletin.publish('captured', capturedPieceObj);
       }
+    },
+
+
+    /**
+     * When a piece is dropped
+     *
+     * @param {String} source
+     * @param {String} target
+     */
+    dropped: function (source, target, snapback) {
+
+      // Publish the dropped event
+      Bulletin.publish('dropped', {
+        from: source,
+        to: target,
+        snapback: snapback
+      });
     },
 
 
