@@ -313,3 +313,29 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   top: 530px;
 }
 
+.flapping-flag {
+  position: absolute;
+  margin-left: -60px;
+}
+
+.flapping-flag-1 {
+  top: 360px;
+  left: 50%;
+  transform: translateX(-320px);
+}
+
+.flapping-flag-2 {
+  top: 410px;
+  left: 50%;
+  transform: translateX(-390px);
+}
+.flapping-flag-3 {
+  top: 360px;
+  left: 50%;
+  transform: translateX(335px);
+}
+.flapping-flag-4 {
+  top: 410px;
+  left: 50%;
+  transform: translateX(405px);
+}
