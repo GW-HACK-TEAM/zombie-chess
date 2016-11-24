@@ -285,6 +285,11 @@ const engineGame = function engineGame(options) {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
 
+    if (piece === 'bP') {
+      return 'img/chesspieces/rockstars/skull_pawn_chess.png';
+    }
+
+
     if (piece === 'wK') {
       return 'img/chesspieces/danceheroes/oliverheldens_icon_chess.png';
     }
