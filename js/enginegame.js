@@ -65,10 +65,10 @@ const engineGame = function engineGame(options) {
   };
 
   var onMoveEnd = function(oldPos, newPos) {
+    EventsLib.dropped(oldPos, newPos, false);
     EventsLib.captured(oldPos, newPos);
 
     if (game.in_checkmate()) {
-      console.log('CHECKMATE!');
       EventsLib.gameOver(oldPos, newPos);
 
       return;
@@ -78,20 +78,6 @@ const engineGame = function engineGame(options) {
       EventsLib.check(oldPos, newPos);
     }
   };
-
-
-  // setInterval(function () {
-  //   if (announced_game_over) {
-  //     return;
-  //   }
-
-  //   if (game.game_over()) {
-  //     announced_game_over = true;
-
-  //     EventsLib.gameOver();
-  //   }
-  // }, 1000);
-
   const uciCmd = function uciCmd(cmd, which) {
     (which || engine).postMessage(cmd);
   };
