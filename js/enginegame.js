@@ -248,7 +248,7 @@ const engineGame = function engineGame(options) {
           evaluation_el.textContent = "";
           // uciCmd("eval");
           // Is it sending feedback?
-        }, 500);
+        }, 2000);
       } else if (match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
         engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
       }
@@ -284,6 +284,11 @@ const engineGame = function engineGame(options) {
     if (piece === 'bK') {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
+
+    if (piece === 'bP') {
+      return 'img/chesspieces/rockstars/skull_pawn_chess.png';
+    }
+
 
     if (piece === 'wK') {
       return 'img/chesspieces/danceheroes/oliverheldens_icon_chess.png';

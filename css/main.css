@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 .game-area {
   height: 100%;
   position: relative;
-  background-image: url(../img/environment/Gamescreen-environment_03-withoutlasers.jpg);
+  background-image: url(../img/environment/Gamescreen-environment_04.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   background-color: black;
@@ -338,6 +338,83 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   top: 410px;
   left: 50%;
   transform: translateX(405px);
+}
+
+@keyframes lightRedBlink {
+  50% { opacity: 0 }
+}
+
+@keyframes lightPurpleBlink {
+  10% { opacity: 1 }
+  20% { opacity: 0 }
+  70% { opacity: 1 }
+  85% { opacity: 0 }
+}
+
+.rock-light {
+  position: absolute;
+  margin-left: -75px;
+  left: 50%;
+  pointer-events: none;
+}
+
+.light-red {
+  animation: lightRedBlink 2000ms linear infinite;
+}
+
+.light-purple {
+  opacity: 0;
+  animation: lightPurpleBlink 6500ms linear infinite;
+}
+
+.light-1 {
+  transform: translateX(-280px);
+  top: 241px;
+}
+
+.light-2 {
+  transform: translateX(-225px);
+  top: 231px;
+}
+
+.light-3 {
+  transform: translateX(-160px);
+  top: 219px;
+}
+
+.light-4 {
+  transform: translateX(-96px);
+  top: 206px;
+}
+
+.light-5 {
+  transform: translateX(-34px);
+  top: 196px;
+}
+
+.light-6 {
+  transform: translateX(34px);
+  top: 196px;
+}
+
+.light-7 {
+  transform: translateX(96px);
+  top: 206px;
+}
+
+.light-8 {
+  transform: translateX(160px);
+  top: 219px;
+}
+
+.light-9 {
+  transform: translateX(225px);
+  top: 231px;
+}
+
+.light-10 {
+  transform: translateX(280px);
+  top: 241px;
 }
 
 .winningModal{

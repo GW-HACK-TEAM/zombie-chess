@@ -57,10 +57,24 @@
 <div class="game-area">
   <div class="container">
     <div id="board" style="width: 512px"></div>
+    <img class="rock-light light-purple light-1" src="img/environment/purple-light.png">
+    <img class="rock-light light-red light-2" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-3" src="img/environment/purple-light.png">
+    <img class="rock-light light-purple light-4" src="img/environment/red-light.png">
+
+    <img class="rock-light light-purple light-5" src="img/environment/purple-light.png">
+    <img class="rock-light light-purple light-6" src="img/environment/purple-light.png">
+
+    <img class="rock-light light-red light-7" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-8" src="img/environment/purple-light.png">
+    <img class="rock-light light-red light-9" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-10" src="img/environment/purple-light.png">
+
     <img class="flapping-flag flapping-flag-1" src="img/environment/red-flag.gif">
     <img class="flapping-flag flapping-flag-2" src="img/environment/red-flag.gif">
     <img class="flapping-flag flapping-flag-3" src="img/environment/red-flag.gif">
     <img class="flapping-flag flapping-flag-4" src="img/environment/red-flag.gif">
+
     <img class="laser laser-1 laser-right" src="img/environment/Laser-strobe_01.png">
     <img class="laser laser-2 laser-left" src="img/environment/Laser-strobe_01.png">
     <img class="laser laser-3 laser-right" src="img/environment/Laser-strobe_01.png">
@@ -175,8 +189,7 @@
     };
     $.post( "http://52.31.244.147/api/postScore", payload);
   });
-
-  $('.username').text(username)
+  $('.username').text(username);
 </script>
 <script src="./js/egg.js"></script>
 <script src="./js/bulletin.js"></script>
