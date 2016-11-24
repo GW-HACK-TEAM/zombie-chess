@@ -2,7 +2,7 @@
 
 let sounds = {
   general: {
-
+    snapback: ['audio/general/snapback.mp3']
   },
   black: {
     drag: ['black-drag.mp3'],
@@ -14,6 +14,8 @@ let sounds = {
     looseSpecificPiece: ['black-loose-specific-piece.mp3'],
     winning: ['black-winning.mp3'],
     losing: ['black-losing.mp3'],
+    winner: ['audio/edm/winner.mp3'],
+    loser: [''],
     check: ['black-check.mp3']
   },
   white: {
@@ -26,6 +28,8 @@ let sounds = {
     looseSpecificPiece: ['white-loose-specific-piece.mp3'],
     winning: ['white-winning.mp3'],
     losing: ['white-losing.mp3'],
+    winner: ['audio/edm/winner.mp3'],
+    loser: [''],
     check: ['white-check.mp3']
   }
 }
@@ -54,12 +58,27 @@ Bulletin.subscribe('captured', (data) => {
 });
 
 Bulletin.subscribe('dropped', (data) => {
-  console.log(data.from);
+  console.log(data);
   var file;
   if(data.from.indexOf('a') > -1) {
     file = getGroupMoodSound('white', 'drop');
   } else {
     file = getGroupMoodSound('black', 'drop');
+  }
+
+  if(data.snapback) {
+    file = getGroupMoodSound('general', 'snapback');
+  }
+  moodSound(file);
+});
+
+Bulletin.subscribe('victory', (data) => {
+  console.log(data);
+  var file;
+  if(data.winner == 'white') {
+    file = getGroupMoodSound('white', 'winner');
+  } else {
+    file = getGroupMoodSound('black', 'winner');
   }
   moodSound(file);
 });
