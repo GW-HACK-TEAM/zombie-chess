@@ -228,6 +228,7 @@ const engineGame = function engineGame(options) {
     console.log('engine:', event);
     var line;
     var match;
+    var moveMatch;
 
     if (event && typeof event === "object") {
       line = event.data;
@@ -239,16 +240,18 @@ const engineGame = function engineGame(options) {
     } else if (line === 'readyok') {
       engineStatus.engineReady = true;
     } else {
-      match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
+      moveMatch = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbn])?/);
       // Did the AI move?
-      if (match) {
-        isEngineRunning = false;
-        game.move({from: match[1], to: match[2], promotion: match[3]});
-        prepareMove();
-        uciCmd("eval", evaler);
-        evaluation_el.textContent = "";
-        // uciCmd("eval");
-        // Is it sending feedback?
+      if (moveMatch) {
+        setTimeout(function() {
+          isEngineRunning = false;
+          game.move({from: moveMatch[1], to: moveMatch[2], promotion: moveMatch[3]});
+          prepareMove();
+          uciCmd("eval", evaler);
+          evaluation_el.textContent = "";
+          // uciCmd("eval");
+          // Is it sending feedback?
+        }, 500);
       } else if (match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
         engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
       }
