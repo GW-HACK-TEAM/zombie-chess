@@ -36,6 +36,7 @@
            });
 
       epic.play();
+      sound.volume(1);
     }
   });
 }());
