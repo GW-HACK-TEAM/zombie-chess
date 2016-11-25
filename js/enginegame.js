@@ -308,7 +308,7 @@ const engineGame = function engineGame(options) {
   var cfg = {
     showErrors: true,
     draggable: true,
-    position: 'start',
+    position: 'rnbqkbnr/pp3ppp/2ppp3/8/1P2P3/3P4/P1P2PPP/RNBQKBNR w KQkq - 0 4',
     onDragStart: onDragStart,
     onDragMove: onDragMove,
     onDrop: onDrop,

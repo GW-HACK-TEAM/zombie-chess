@@ -19,7 +19,10 @@
   }());
 
   const init = function init() {
-    var game = engineGame();
+    let opts ={
+      Contempt: 80
+    }
+    var game = engineGame(opts);
 
     newGame = function newGame() {
       var baseTime = parseFloat($('#timeBase').val()) * 60;
