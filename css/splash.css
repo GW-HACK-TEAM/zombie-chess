@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 }
 
 .splash-background {
-  background-image: url('/img/splash/splash-bkgd.jpg');
+  background-image: url('../img/splash/splash-bkgd.jpg');
   background-size:cover;
 }
 
