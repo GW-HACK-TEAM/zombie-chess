@@ -1,5 +1,5 @@
 .about-us {
-  margin-top:3rem;
+  /*margin-top:3rem;*/
   padding:1rem;
   background-color:rgba(0,0,0,0.8);
   height:30vh;
@@ -11,13 +11,40 @@
 }
 
 .about-us h2 {
+  margin-top:-1rem;
   color: greenyellow;
 }
 
 .about-us h3 {
+  font-size: 2rem;
   color: lightgrey;
 }
 
 .profile-pic {
   width:100px;
+}
+
+.avatar {
+  width: 30%;
+  margin: 1.22rem;
+
+}
+.profile-pic:hover{
+  cursor: pointer;
+}
+.avatar:hover{
+  cursor: pointer;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: transparent;
 }

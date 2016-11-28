@@ -9,6 +9,8 @@
   <script src="js/contrib/jquery-1.10.1.min.js"></script>
   <script src="js/contrib/bootstrap.min.js"></script>
   <script src="js/contrib/lodash.js"></script>
+  <script src="js/sounds.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js"></script>
   <title>Zombie Chess: About</title>
   <!--
   _____                   __    _         ________
@@ -37,15 +39,15 @@
         <li>
           Share
         </li>
+        <!--<li>-->
+          <!--<img src="./img/icons/facebook.png"/>-->
+        <!--</li>-->
         <li>
-          <img src="/img/icons/facebook.png"/>
+          <img src="./img/icons/twitter.png"/>
         </li>
-        <li>
-          <img src="/img/icons/twitter.png"/>
-        </li>
-        <li>
-          <img src="/img/icons/google.png"/>
-        </li>
+        <!--<li>-->
+          <!--<img src="./img/icons/google.png"/>-->
+        <!--</li>-->
       </ul>
     </div>
   </div>
@@ -57,7 +59,7 @@
         <img class="profile-pic" src="https://www.gravitywell.co.uk/images/uploads/team/team-members/chris_quinn.jpg">
         <h1>Chris Quinn</h1>
         <h2 class="bio">Captain</h2>
-        <h3>SEQUIN RYTHMN IS A DANCER</h3>
+        <h3>Epic Sax Guy</h3>
       </div>
       <div class="col-lg-3">
         <img class="profile-pic" src="https://www.gravitywell.co.uk/images/uploads/team/team-members/matt_boyle.jpg">
@@ -90,16 +92,16 @@
         <img class="profile-pic" src="https://www.gravitywell.co.uk/images/uploads/team/team-members/james_best_01.jpg">
         <h1>James Best</h1>
         <h2 class="bio">Full Stack Developer</h2>
-        <h3></h3>
+        <h3>Sounds</h3>
       </div>
       <div class="col-lg-3">
-        <img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png">
+        <img class="avatar" src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png">
         <h1>David Smith</h1>
         <h2 class="bio">UX & Branding Whizz</h2>
         <h3>Virtuous Videographer</h3>
       </div>
       <div class="col-lg-3">
-        <img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png">
+        <img class="avatar" src="img/chesspieces/rockstars/bowie_icon_chess.png">
         <h1>Dan UX Dan</h1>
         <h2 class="bio">Digital Style</h2>
         <h3>Pixel Papa</h3>
@@ -107,20 +109,60 @@
     </div>
     <div class="row about-us text-center">
       <div class="col-lg-3">
+      </div>
+      <div class="col-lg-3">
         <img class="profile-pic" src="https://www.gravitywell.co.uk/images/uploads/team/team-members/simon_bos_02.jpg">
         <h1>Simon Bos</h1>
-        <h2 class="bio">King Banter</h2>
+        <h2 class="bio">Director @ GW</h2>
         <h3>Throwing Shapes</h3>
       </div>
       <div class="col-lg-3">
         <img class="profile-pic" src="https://www.gravitywell.co.uk/images/uploads/team/team-members/jack_hayward.jpg">
         <h1>Jack Hayward</h1>
-        <h2 class="bio">Canny Lad</h2>
-        <h3>Simply Read</h3>
+        <h2 class="bio">Director @ GW</h2>
+        <h3>Cherry MX</h3>
       </div>
     </div>
   </div>
 </div>
+<footer class="footer">
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">ZC</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About the project</a></li>
+            <li><a href="https://gravitywell.co.uk">Made by Gravitywell & Friends</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+</footer>
+<script>
+
+  let arr =[
+    "audio/blips/Powerup.wav",
+    "audio/blips/Powerup2.wav",
+    "audio/blips/Powerup3.wav",
+    "audio/blips/Powerup4.wav",
+    "audio/blips/Powerup6.wav",
+  ];
+
+  $('.profile-pic').click(function () {
+    moodSound( _.sample(arr));
+  });
+  $('.avatar').click(function () {
+    moodSound( _.sample(arr));
+  });
+</script>
 <script>
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;

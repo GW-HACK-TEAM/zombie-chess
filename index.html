@@ -22,7 +22,7 @@
       <h2 class="splash-copy splash-header text-center">The reanimated corpses of rock legends <br>battle the most
         charismatic icons of dance music</h2>
       <div class="col-lg-6 col-lg-offset-3">
-        <input type="text" value="heldeep_fan_1002" class="username form-control">
+        <input type="text" placeholder="PICK YOUR USERNAME" class="username form-control">
         <br>
         <h2 class="text-center">
           <button class="btn btn-lg choose">CHOOSE YOUR SIDE</button>
@@ -74,11 +74,37 @@
     </div>
   </div>
 </div>
+<footer class="footer">
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">ZC</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About the project</a></li>
+            <li><a href="https://gravitywell.co.uk">Made by Gravitywell & Friends</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+</footer>
+
 <script>
   $('.choose').click(function () {
-    localStorage.setItem('username', $('.username').val());
-    $('.username-form').addClass('hidden');
-    $('.choose-side').removeClass('hidden');
+    let usname = $('.username').val()
+    if(usname.length > 0 && usname != 'PICK YOUR USERNAME'){
+      localStorage.setItem('username', usname );
+      $('.username-form').addClass('hidden');
+      $('.choose-side').removeClass('hidden');
+    }
+
   });
 
   $('.white').click(function () {

@@ -31,7 +31,23 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 }
 
 .logo {
-  margin-left:-9rem;
+  /*margin-left:-9rem;*/
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width:100vw;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width:100vw;
+  }
+}
+@media (max-width: 1024px) {
+  .logo {
+    width:100vw;
+  }
 }
 
 @-ms-keyframes wiggle{
@@ -101,4 +117,16 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   text-align: center;
   width:50%;
   max-width: 50%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }
