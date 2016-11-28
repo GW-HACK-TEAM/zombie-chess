@@ -1,0 +1,23 @@
+.about-us {
+  margin-top:3rem;
+  padding:1rem;
+  background-color:rgba(0,0,0,0.8);
+  height:30vh;
+  min-height: 20%;
+}
+
+.about-us h1 {
+  color:white;
+}
+
+.about-us h2 {
+  color: greenyellow;
+}
+
+.about-us h3 {
+  color: lightgrey;
+}
+
+.profile-pic {
+  width:100px;
+}

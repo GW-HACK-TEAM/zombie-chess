@@ -92,3 +92,13 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   -webkit-animation:wiggle .3s infinite;
   animation: wiggle .3s infinite;
 }
+
+.splash-copy {
+  color: white;
+}
+
+.choose-side-copy{
+  text-align: center;
+  width:50%;
+  max-width: 50%;
+}
