@@ -174,7 +174,7 @@
       if(side == 'white'){
         msg = "Channelling the power of the the Moog, you have returned the ancient rockers to their crusty graves and cleared the dancefloor forever."
       }
-      $('resultMessage').val(msg);
+      $('resultMessage').text(msg);
 
       let score = localStorage.getItem('score');
       let payload = {

@@ -184,7 +184,7 @@
     if(side == 'white'){
       msg = 'You have failed the masters of EDM! Go and sit drunkenly on the steps outside the club, drowning your shame. '
     }
-    $('resultMessage').val(msg);
+    $('resultMessage').text(msg);
     $('.winningModal').removeClass('hidden');
     let score = $('.score').text();
     if (!score) {
