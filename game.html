@@ -160,13 +160,13 @@
     <div id="engineStatus">...</div>
   </div>
   <div class="winningModal hidden">
-    <h1 class="text-center resultTitle">Winner</h1>
+    <h1 class="text-center resultTitle"></h1>
     <h2 class="text-center">
       <p class="resultMessage"></p>
     </h2>
-    <p class="text-center">
-      <img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png" height="64" width="64"/>
-    </p>
+    <!--<p class="text-center">-->
+      <!--<img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png" height="64" width="64"/>-->
+    <!--</p>-->
     <h2 class="text-center concedelink">
       <a href="leaderboard.html" class="btn btn-lg">
         Go to Leaderboard
@@ -184,7 +184,8 @@
     if(side == 'white'){
       msg = 'You have failed the masters of EDM! Go and sit drunkenly on the steps outside the club, drowning your shame. '
     }
-    $('resultMessage').text(msg);
+    $('.resultMessage').text(msg);
+    $('.resultTitle').text('YOU LOSE!');
     $('.winningModal').removeClass('hidden');
     let score = $('.score').text();
     if (!score) {
