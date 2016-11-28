@@ -169,6 +169,13 @@
       $('.winningModal').removeClass('hidden');
       let username = localStorage.getItem('username');
       let side = localStorage.getItem('color');
+
+      let msg = "Blessed by the rock gods, you have defeated the ravers and restored real music to it's rightful place at the top of the charts.";
+      if(side == 'white'){
+        msg = "Channelling the power of the the Moog, you have returned the ancient rockers to their crusty graves and cleared the dancefloor forever."
+      }
+      $('resultMessage').val(msg);
+
       let score = localStorage.getItem('score');
       let payload = {
         score: score,

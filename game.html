@@ -45,13 +45,15 @@
     <div class="social">
       <ul>
         <li>
-          Share
+          <!--Share-->
         </li>
         <!--<li>-->
         <!--<img src="./img/icons/facebook.png"/>-->
         <!--</li>-->
         <li>
-          <img src="./img/icons/twitter.png"/>
+          <a href="https://twitter.com/gravitywelluk">
+            <img src="./img/icons/twitter.png"/>
+          </a>
         </li>
         <!--<li>-->
         <!--<img src="./img/icons/google.png"/>-->
@@ -158,9 +160,9 @@
     <div id="engineStatus">...</div>
   </div>
   <div class="winningModal hidden">
-    <h1 class="text-center">Winner</h1>
+    <h1 class="text-center resultTitle">Winner</h1>
     <h2 class="text-center">
-      You have disappointed the rock / pop gods. FOR SHAME!
+      <p class="resultMessage"></p>
     </h2>
     <p class="text-center">
       <img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png" height="64" width="64"/>
@@ -175,9 +177,14 @@
 </div>
 
 <script>
-  let username = localStorage.getItem('username');
-  let side = localStorage.getItem('color');
   $('.exit').click(function () {
+    let username = localStorage.getItem('username');
+    let side = localStorage.getItem('color');
+    let msg = 'You have failed the rock gods! Throw yourself on the mercy of the moshpit!';
+    if(side == 'white'){
+      msg = 'You have failed the masters of EDM! Go and sit drunkenly on the steps outside the club, drowning your shame. '
+    }
+    $('resultMessage').val(msg);
     $('.winningModal').removeClass('hidden');
     let score = $('.score').text();
     if (!score) {
@@ -187,8 +194,7 @@
       score = 100;
     }
     localStorage.setItem('score', score);
-    let username = localStorage.getItem('username');
-    let side = localStorage.getItem('color');
+
     let payload = {
       score: score,
       username: username,
@@ -196,6 +202,7 @@
     };
     $.post("http://52.31.244.147/api/postScore", payload);
   });
+  let username = localStorage.getItem('username');
   $('.username').text(username);
 </script>
 <script>
