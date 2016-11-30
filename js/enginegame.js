@@ -286,7 +286,7 @@ const engineGame = function engineGame(options) {
     }
 
     if (piece === 'bP') {
-      return 'img/chesspieces/rockstars/skull_pawn_chess.png';
+      return 'img/chesspieces/rockstars/slash_pawn_chess.png';
     }
 
 
