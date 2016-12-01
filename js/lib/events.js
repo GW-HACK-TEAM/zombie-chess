@@ -164,8 +164,7 @@
         };
       }
 
-
-      console.log(winningData);
+      console.log('Game over!', winningData);
 
       // Publish the dropped event
       Bulletin.publish('game_over', winningData);
