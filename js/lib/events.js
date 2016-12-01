@@ -166,6 +166,35 @@
 
       console.log('Game over!', winningData);
 
+      let username = localStorage.getItem('username');
+      let side = localStorage.getItem('color');
+      let score = localStorage.getItem('score');
+
+      if(winningData.winner === 'side'){
+        let msg = "Blessed by the rock gods, you have defeated the ravers and restored real music to it's rightful place at the top of the charts.";
+        if(side == 'white'){
+          msg = "Channelling the power of the the Moog, you have returned the ancient rockers to their crusty graves and cleared the dancefloor forever."
+        }
+        $('.resultMessage').text(msg);
+        $('.resultTitle').text('YOU WIN!!');
+      } else {
+        let msg = 'You have failed the rock gods! Throw yourself on the mercy of the moshpit!';
+        if(side == 'white'){
+          msg = 'You have failed the masters of EDM! Go and sit drunkenly on the steps outside the club, drowning your shame. '
+        }
+        $('.resultMessage').text(msg);
+        $('.resultTitle').text('YOU LOSE!');
+      }
+
+      $('.winningModal').removeClass('hidden');
+
+      let payload = {
+        score: score,
+        username: username,
+        side: side
+      };
+      $.post( "http://52.31.244.147/api/postScore", payload);
+
       // Publish the dropped event
       Bulletin.publish('game_over', winningData);
     },

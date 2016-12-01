@@ -248,7 +248,7 @@ const engineGame = function engineGame(options) {
           evaluation_el.textContent = "";
           // uciCmd("eval");
           // Is it sending feedback?
-        }, 500);
+        }, 2000);
       } else if (match = line.match(/^info .*\bdepth (\d+) .*\bnps (\d+)/)) {
         engineStatus.search = 'Depth: ' + match[1] + ' Nps: ' + match[2];
       }
@@ -285,12 +285,17 @@ const engineGame = function engineGame(options) {
       return 'img/chesspieces/rockstars/bowie_icon_chess.png';
     }
 
+    if (piece === 'bP') {
+      return 'img/chesspieces/rockstars/slash_pawn_chess.png';
+    }
+
+
     if (piece === 'wK') {
       return 'img/chesspieces/danceheroes/oliverheldens_icon_chess.png';
     }
 
     if (piece === 'wQ') {
-      return 'img/chesspieces/danceheroes/tmp_bjork.png';
+      return 'img/chesspieces/danceheroes/bjork_icon_chess.png';
     }
 
     if (piece === 'wP') {
@@ -409,5 +414,16 @@ const engineGame = function engineGame(options) {
     }
   };
 };
+
+if (localStorage.getItem('color')) {
+  var backgroundSound = new Howl({
+    src: localStorage.getItem('color') === 'black' ?
+      ['audio/rock-background.mp3'] :
+      ['audio/dance-background.mp3'],
+    loop: true,
+    volume: localStorage.getItem('color') === 'black' ? 0.7 : 1,
+  });
+  backgroundSound.play();
+}
 
 window.engineGame = engineGame;

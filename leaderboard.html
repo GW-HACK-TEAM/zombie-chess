@@ -2,70 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leaderboard</title>
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/leaderboard.css">
+  <link rel="stylesheet" href="css/main.css"/>
   <script src="js/contrib/jquery-1.10.1.min.js"></script>
   <script src="js/contrib/bootstrap.min.js"></script>
   <script src="js/contrib/lodash.js"></script>
+  <title>Zombie Chess: Leaderboard</title>
+  <!--
+  _____                   __    _         ________
+/__  /  ____  ____ ___  / /_  (_)__     / ____/ /_  ___  __________
+  / /  / __ \/ __ `__ \/ __ \/ / _ \   / /   / __ \/ _ \/ ___/ ___/
+ / /__/ /_/ / / / / / / /_/ / /  __/  / /___/ / / /  __(__  |__  )
+/__________/_/ /_/ /___.___/______/   \____/_/ /_/\___/____/____/
+-->
 </head>
 
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 ">
-      <h2 class="text-center">Your Score:</h2>
-      <h3 class="text-center score"></h3>
+<div class="toolbar">
+  <div class="container">
+    <div class="menu">
+      <ul>
+        <li>
+          <a class="exit" href="index.html">Play Again</a>
+        </li>
+        <li>
+          <!--<a class="show-settings" href="#">Options</a>-->
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
-      BattleScore
-      <div class="battleScore">
 
+    <div class="megatron">
+      <div class="megatron-content">
+        <h1 class="username"></h1>
+        <span class="score-label">Score</span>
+        <span class="h1 score">0</span>
       </div>
+    </div>
+
+    <div class="social">
+      <ul>
+        <li>
+          <!--Share-->
+        </li>
+        <!--<li>-->
+        <!--<img src="./img/icons/facebook.png"/>-->
+        <!--</li>-->
+        <li>
+          <a href="https://twitter.com/gravitywelluk">
+          <img src="./img/icons/twitter.png"/>
+          </a>
+        </li>
+        <!--<li>-->
+        <!--<img src="./img/icons/google.png"/>-->
+        <!--</li>-->
+      </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <h1 class="text-center">Top Rockers</h1>
-      <div class="text-center rock-result"></div>
+</div>
+<div class="game-area">
+  <div class="container leaderboard leaderboard-bg">
+    <div class="row text-center leaderboard-spacer">
+      <img class="logo" src="./img/splash/logo-small.png">
     </div>
-    <div class="col-lg-4">
-      <h1 class="text-center">Leaderboard</h1>
-      <div class="text-center result">
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-3">
+        <div class="battleScore">
+          <h1 class="text-center">Rock Legends</h1>
+          <h2 class="battleScore-black text-center">
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="battleScore">
+          <h1 class="text-center">EDM Legends</h1>
+          <h2 class="battleScore-white text-center">
+          </h2>
+        </div>
       </div>
     </div>
-    <div class="col-lg-4">
-      <h1 class="text-center">Off Their Face EDMers</h1>
-      <div class="text-center edm-result"></div>
+    <div class="row">
+      <div class="col-lg-4">
+        <h1 class="text-center">Top Rockers</h1>
+        <div class="text-center rock-result"></div>
+      </div>
+      <div class="col-lg-4">
+        <h1 class="text-center">Leaderboard</h1>
+        <div class="text-center result">
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h1 class="text-center">Off Their Face EDMers</h1>
+        <div class="text-center edm-result"></div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  $.get( "http://chris.gw:3000/api/getLeaderBoard", function( data ) {
-    $.each(data, function( index, value ) {
-      let block ="<p class='score-row'><span class='score'>"+ value.score + "</span> <br><span class='username'>"+value.username+"</span></p>";
+  let username = localStorage.getItem('username');
+  let side = localStorage.getItem('color');
+  let score = localStorage.getItem('score');
 
-      if(value.side == 'black'){
+  $.get("http://52.31.244.147/api/getLeaderBoard", function (data) {
+    $.each(data, function (index, value) {
+      let block = "<p class='score-row'><span class='score'>" + value.score + "</span> <br><span class='username'>" + value.username + "</span></p>";
+
+      if (value.side == 'black') {
         $('.rock-result').append(block)
       }
-      if(value.side == 'white'){
+      if (value.side == 'white') {
         $('.edm-result').append(block)
       }
       $('.result').append(block)
     });
   });
 
-//  $.get( "http://chris.gw:3000/api/getBattleScores", function( data ) {
-//      $('.battleScore').append(data)
-//  });
+  $.get("http://52.31.244.147/api/getBattleScores", function (data) {
+    $.each(data, function (index, value) {
+      let score = "<p>" + value.val + "</p>";
+      if (value.type == 'black') {
+        $('.battleScore-black').append(score)
+      } else if (value.type == 'white') {
+        $('.battleScore-white').append(score)
+      }
+    });
 
-  if(localStorage.getItem('score') !== 'undefined'){
+  });
+
+  if (localStorage.getItem('score') !== 'undefined') {
     $('.score').text(localStorage.getItem('score'))
   }
-</script>
 
+  $('.username').text(username)
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1662516-22', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

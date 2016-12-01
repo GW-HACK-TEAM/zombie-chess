@@ -10,7 +10,14 @@
   <script src="js/contrib/chess.min.js"></script>
   <script src="js/contrib/chessboard-0.3.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js"></script>
-  <title>Rock Legends vs Electronic Dance Music Legends</title>
+  <title>Zombie Chess: Rock Legends vs Electronic Dance Music Legends</title>
+  <!--
+  _____                   __    _         ________
+/__  /  ____  ____ ___  / /_  (_)__     / ____/ /_  ___  __________
+  / /  / __ \/ __ `__ \/ __ \/ / _ \   / /   / __ \/ _ \/ ___/ ___/
+ / /__/ /_/ / / / / / / /_/ / /  __/  / /___/ / / /  __(__  |__  )
+/__________/_/ /_/ /___.___/______/   \____/_/ /_/\___/____/____/
+-->
 </head>
 
 <body>
@@ -19,10 +26,10 @@
     <div class="menu">
       <ul>
         <li>
-          <a class="exit" href="leaderboard.html">Leaderboard</a>
+          <a class="exit">Concede Game</a>
         </li>
         <li>
-          <a class="show-settings" href="#">Options</a>
+          <!--<a class="show-settings" href="#">Options</a>-->
         </li>
       </ul>
     </div>
@@ -38,17 +45,19 @@
     <div class="social">
       <ul>
         <li>
-          Share
+          <!--Share-->
         </li>
+        <!--<li>-->
+        <!--<img src="./img/icons/facebook.png"/>-->
+        <!--</li>-->
         <li>
-          <img src="/img/icons/facebook.png" />
+          <a href="https://twitter.com/gravitywelluk">
+            <img src="./img/icons/twitter.png"/>
+          </a>
         </li>
-        <li>
-          <img src="/img/icons/twitter.png" />
-        </li>
-        <li>
-          <img src="/img/icons/google.png" />
-        </li>
+        <!--<li>-->
+        <!--<img src="./img/icons/google.png"/>-->
+        <!--</li>-->
       </ul>
     </div>
   </div>
@@ -56,9 +65,31 @@
 
 <div class="game-area">
   <div class="container">
-    <span class="h3" id="time1">0:05:00</span>
     <div id="board" style="width: 512px"></div>
-    <span class="h3" id="time2">0:05:00</span>
+    <img class="rock-light light-purple light-1" src="img/environment/purple-light.png">
+    <img class="rock-light light-red light-2" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-3" src="img/environment/purple-light.png">
+    <img class="rock-light light-purple light-4" src="img/environment/red-light.png">
+
+    <img class="rock-light light-purple light-5" src="img/environment/purple-light.png">
+    <img class="rock-light light-purple light-6" src="img/environment/purple-light.png">
+
+    <img class="rock-light light-red light-7" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-8" src="img/environment/purple-light.png">
+    <img class="rock-light light-red light-9" src="img/environment/red-light.png">
+    <img class="rock-light light-purple light-10" src="img/environment/purple-light.png">
+
+    <img class="flapping-flag flapping-flag-1" src="img/environment/red-flag.gif">
+    <img class="flapping-flag flapping-flag-2" src="img/environment/red-flag.gif">
+    <img class="flapping-flag flapping-flag-3" src="img/environment/red-flag.gif">
+    <img class="flapping-flag flapping-flag-4" src="img/environment/red-flag.gif">
+
+    <img class="laser laser-1 laser-right" src="img/environment/Laser-strobe_01.png">
+    <img class="laser laser-2 laser-left" src="img/environment/Laser-strobe_01.png">
+    <img class="laser laser-3 laser-right" src="img/environment/Laser-strobe_01.png">
+    <img class="laser laser-4 laser-left" src="img/environment/Laser-strobe_01.png">
+    <img class="laser laser-5 laser-right" src="img/environment/Laser-strobe_01.png">
+    <img class="laser laser-6 laser-left" src="img/environment/Laser-strobe_01.png">
   </div>
 
   <div class="bants-wrapper rock-bants">
@@ -128,31 +159,69 @@
     <hr>
     <div id="engineStatus">...</div>
   </div>
+  <div class="winningModal hidden">
+    <h1 class="text-center resultTitle"></h1>
+    <h2 class="text-center">
+      <p class="resultMessage"></p>
+    </h2>
+    <!--<p class="text-center">-->
+      <!--<img src="img/chesspieces/danceheroes/oliverheldens_icon_chess.png" height="64" width="64"/>-->
+    <!--</p>-->
+    <h2 class="text-center concedelink">
+      <a href="leaderboard.html" class="btn btn-lg">
+        Go to Leaderboard
+      </a>
+    </h2>
+
+  </div>
 </div>
 
 <script>
-  let username = localStorage.getItem('username');
-  let side = localStorage.getItem('color');
   $('.exit').click(function () {
+    let username = localStorage.getItem('username');
+    let side = localStorage.getItem('color');
+    let msg = 'You have failed the rock gods! Throw yourself on the mercy of the moshpit!';
+    if(side == 'white'){
+      msg = 'You have failed the masters of EDM! Go and sit drunkenly on the steps outside the club, drowning your shame. '
+    }
+    $('.resultMessage').text(msg);
+    $('.resultTitle').text('YOU LOSE!');
+    $('.winningModal').removeClass('hidden');
     let score = $('.score').text();
-    if(!score){
+    if (!score) {
       return;
     }
-    if(score == 'Mate in 1'){
+    if (score == 'Mate in 1') {
       score = 100;
     }
     localStorage.setItem('score', score);
-    $.ajax({
-       type: "POST",
-       url: 'http://chris.gw:3000/api/postScore',
-       data: {
-         score: score,
-         username: username,
-         side: side
-       },
-     });
+
+    let payload = {
+      score: score,
+      username: username,
+      side: side
+    };
+    $.post("http://52.31.244.147/api/postScore", payload);
   });
-  $('.username').text(username)
+  let username = localStorage.getItem('username');
+  $('.username').text(username);
+</script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-1662516-22', 'auto');
+  ga('send', 'pageview');
+
 </script>
 <script src="./js/egg.js"></script>
 <script src="./js/bulletin.js"></script>
